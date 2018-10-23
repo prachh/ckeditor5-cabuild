@@ -1,0 +1,1 @@
+(function(d){d['ne']=Object.assign(d['ne']||{},{a:"Maximize",b:"Drive",c:"बोल्ड",d:"रेखांकन",e:"इटालिक",f:"धनी पाठ सम्पादक",g:"धनी पाठ सम्पादक, %0",h:"पूर्ववत",i:"रिडु"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));

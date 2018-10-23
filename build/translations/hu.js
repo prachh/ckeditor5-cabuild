@@ -1,0 +1,1 @@
+(function(d){d['hu']=Object.assign(d['hu']||{},{a:"Maximize",b:"Drive",c:"Félkövér",d:"Aláhúzott",e:"Dőlt",f:"Bővített szövegszerkesztő",g:"Bővített szövegszerkesztő, %0",h:"Visszavonás",i:"Újra"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));

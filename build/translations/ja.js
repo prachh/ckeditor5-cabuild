@@ -1,0 +1,1 @@
+(function(d){d['ja']=Object.assign(d['ja']||{},{a:"Maximize",b:"Drive",c:"ボールド",d:"アンダーライン",e:"イタリック",f:"リッチテキストエディター",g:"リッチテキストエディター, %0",h:"元に戻す",i:"やり直し"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));

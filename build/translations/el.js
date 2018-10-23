@@ -1,0 +1,1 @@
+(function(d){d['el']=Object.assign(d['el']||{},{a:"Maximize",b:"Drive",c:"Έντονη",d:"Underline",e:"Πλάγια",f:"Επεξεργαστής Πλούσιου Κειμένου",g:"Επεξεργαστής Πλούσιου Κειμένου, 0%",h:"Αναίρεση",i:"Επανάληψη"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));

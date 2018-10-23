@@ -1,0 +1,47 @@
+/*
+ * Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * For licensing, see LICENSE.md.
+ */
+
+.ck.ck-editor {
+	/* All the elements within `.ck-editor` are positioned relatively to it.
+	 If any element needs to be positioned with respect to the <body>, etc.,
+	 it must land outside of the `.ck-editor` in DOM. */
+	position: relative;
+
+	& .ck-editor__top .ck-sticky-panel .ck-toolbar {
+		/* https://github.com/ckeditor/ckeditor5-editor-classic/issues/62 */
+		z-index: var(--ck-z-modal);
+	}
+}
+
+
+
+.ck.ck-editor__bottom {
+    border-radius: var(--ck-border-radius);
+    border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	background: var(--ck-color-toolbar-background);
+	border-left: 1px solid var(--ck-color-toolbar-border);
+	border-right: 1px solid var(--ck-color-toolbar-border);
+	border-bottom: 1px solid var(--ck-color-toolbar-border);
+	position: static;
+	padding : 5px;
+}
+
+
+.ck-rounded-corners .ck.ck-editor__main>.ck-editor__editable, .ck.ck-editor__main>.ck-editor__editable.ck-rounded-corners {
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+.ck.ck-label.wordCount {
+    padding-top: 7px;
+    display: inline-block;
+}
+
+.ck.ck-label.wordMinMax {
+    padding-top: 7px;
+    display: inline-block;
+    float: right;
+}

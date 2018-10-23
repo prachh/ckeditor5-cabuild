@@ -1,0 +1,17 @@
+
+
+.cke_resizer_ltr {
+    cursor: se-resize;
+}
+
+.cke_resizer {
+    overflow: hidden;
+    border-width: 10px 10px 0 0;
+    border-color: transparent #666 transparent transparent;
+    border-style: dashed solid dashed dashed;
+    font-size: 0;
+    vertical-align: bottom;
+    margin-top: 6px;
+    margin-bottom: 2px;
+    box-shadow: 0 1px 0 rgba(255,255,255,.3);
+}

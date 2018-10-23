@@ -1,0 +1,1 @@
+(function(d){d['ko']=Object.assign(d['ko']||{},{a:"Maximize",b:"Drive",c:"굵게",d:"밑줄",e:"기울임꼴",f:"Rich Text Editor",g:"Rich Text Editor, %0",h:"실행 취소",i:"다시 실행"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));

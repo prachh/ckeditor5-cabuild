@@ -1,1 +1,1 @@
-(function(d){d['fi']=Object.assign(d['fi']||{},{a:"Maximize",b:"Drive",c:"Lihavointi",d:"Kursivointi",e:"Alleviivaus",f:"Rikas tekstieditori",g:"Rikas tekstieditori, %0",h:"Peru",i:"Tee uudelleen"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));
+(function(d){d['fi']=Object.assign(d['fi']||{},{a:"Maximize",b:"Drive",c:"Lihavointi",d:"Kursivointi",e:"Alleviivaus",f:"Rikas tekstieditori, %0",g:"Rikas tekstieditori",h:"Peru",i:"Tee uudelleen"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));

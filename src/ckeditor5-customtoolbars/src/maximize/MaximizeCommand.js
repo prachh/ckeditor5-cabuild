@@ -11,11 +11,7 @@ export default class MaximizeCommand extends Command {
 		this.view=view;
 	}
 	execute( options = {} ) {
-		console.log(this.e.sourceElement.nextSibling.classList);
-		console.log(global.window);
-
-		console.log(global.document);
-		console.log(this.e);
+		console.log(options);
 		if(this.e.sourceElement.nextSibling.classList.contains("ckeditorfullsize"))
 			{
 				this.view.element.classList.remove("ck-on");
@@ -23,18 +19,22 @@ export default class MaximizeCommand extends Command {
 				this.e.sourceElement.nextSibling.classList.remove("ckeditorfullsize");
 				this.e.sourceElement.nextSibling.style="";
 				this.e.sourceElement.nextSibling.children[2].children[0].style="";
+				document.getElementsByTagName('html')[0].style.overflow = ''
 			}
 			else
 			{
-				
 				this.view.element.classList.remove("ck-off");
 				this.view.element.classList.add("ck-on");
 				this.e.sourceElement.nextSibling.classList.add("ckeditorfullsize");
 				 var heightvalue = window.innerHeight - this.e.sourceElement.nextSibling.children[1].offsetHeight - 2;
 				 var stylevalue= "height: " + heightvalue + "px;";
-				 var fullstyle="display: block; z-index: 999; position: absolute; left: 0px; top: 0px; width: " +  window.innerWidth + "px;";
+				 var fullstyle="display: block; z-index: 999; position: fixed; left: 0px; top: 0px; width: 100%;";
 				 this.e.sourceElement.nextSibling.style=fullstyle;
+				 document.getElementsByTagName('html')[0].style.overflow = 'hidden';
+				 document.getElementsByClassName('ck-content')[0].style.height = window.innerHeight;
+
 				 this.e.sourceElement.nextSibling.children[2].children[0].style=stylevalue;
 			}
 	}
+			
 }

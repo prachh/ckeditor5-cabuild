@@ -1,1 +1,1 @@
-(function(d){d['ja']=Object.assign(d['ja']||{},{a:"Maximize",b:"Drive",c:"ボールド",d:"イタリック",e:"アンダーライン",f:"リッチテキストエディター, %0",g:"リッチテキストエディター",h:"元に戻す",i:"やり直し"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));
+(function(d){d['ja']=Object.assign(d['ja']||{},{a:"Maximize",b:"Drive",c:"ボールド",d:"イタリック",e:"アンダーライン",f:"リッチテキストエディター",g:"リッチテキストエディター, %0",h:"元に戻す",i:"やり直し"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));

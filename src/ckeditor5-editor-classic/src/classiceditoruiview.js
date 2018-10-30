@@ -13,6 +13,7 @@ import StickyPanelView from './../../ckeditor5-ui/src/panel/sticky/stickypanelvi
 import ToolbarView from './../../ckeditor5-ui/src/toolbar/toolbarview';
 import LabelView from './../../ckeditor5-ui/src/label/labelview';
 import ResizeView from './../../ckeditor5-ui/src/resize/resizeview';
+
 import uid from '@ckeditor/ckeditor5-utils/src/uid';
 
 import '../theme/classiceditor.css';
@@ -102,6 +103,9 @@ export default class ClassicEditorUIView extends BoxedEditorUIView {
 		} );
 
 		this.resize=new ResizeView ( locale );
+
+		
+
 	}
 
 	/**
@@ -121,6 +125,7 @@ export default class ClassicEditorUIView extends BoxedEditorUIView {
 		this.wordsummary.add( this._voiceLabelViewForWordCount );
 		this.wordsummary.add( this.wordMinMax );
 		this.wordsummary.add( this._voiceLabelViewForMaxMin );
+
 	}
 
 	/**

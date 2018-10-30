@@ -14,6 +14,8 @@ import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import Maximize from './ckeditor5-customtoolbars/src/maximize';
 import Drive from './ckeditor5-customtoolbars/src/drive';
 import ToolbarView from '@ckeditor/ckeditor5-ui/src/toolbar/toolbarview';
+import WordCount from './ckeditor5-customtoolbars/src/wordcount';
+
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -27,7 +29,8 @@ ClassicEditor.builtinPlugins = [
 	Paragraph,
 	Maximize,
 	Drive,
-	ToolbarView
+	ToolbarView,
+	WordCount
 ];
 
 // Editor configuration.

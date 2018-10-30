@@ -17,6 +17,7 @@ import ClassicEditorUIView from './classiceditoruiview';
 import ElementReplacer from '@ckeditor/ckeditor5-utils/src/elementreplacer';
 import getDataFromElement from '@ckeditor/ckeditor5-utils/src/dom/getdatafromelement';
 import mix from '@ckeditor/ckeditor5-utils/src/mix';
+import ValidateWordCountMixin from './validatewordcount';
 import { isElement } from 'lodash-es';
 
 /**
@@ -217,3 +218,4 @@ export default class ClassicEditor extends Editor {
 
 mix( ClassicEditor, DataApiMixin );
 mix( ClassicEditor, ElementApiMixin );
+mix( ClassicEditor, ValidateWordCountApiMixin );

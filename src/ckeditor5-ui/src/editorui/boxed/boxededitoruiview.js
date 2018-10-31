@@ -53,7 +53,7 @@ export default class BoxedEditorUIView extends EditorUIView {
 		 * @readonly
 		 * @member {module:ui/viewcollection~ViewCollection}
 		 */
-		this.bottom = this.createCollection();
+		//this.bottom = this.createCollection();
 
 		this.wordsummary = this.createCollection();
 		/**
@@ -106,7 +106,7 @@ export default class BoxedEditorUIView extends EditorUIView {
 					},
 					children: this.main
 				},
-				{
+				/*{
 					tag: 'div',
 					attributes: {
 						class: [
@@ -116,7 +116,7 @@ export default class BoxedEditorUIView extends EditorUIView {
 						role: 'presentation'
 					},
 					children: this.bottom
-				},
+				},*/
 				{
 					tag: 'div',
 					attributes: {

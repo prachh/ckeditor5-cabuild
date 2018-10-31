@@ -17,7 +17,7 @@ import ClassicEditorUIView from './classiceditoruiview';
 import ElementReplacer from '@ckeditor/ckeditor5-utils/src/elementreplacer';
 import getDataFromElement from '@ckeditor/ckeditor5-utils/src/dom/getdatafromelement';
 import mix from '@ckeditor/ckeditor5-utils/src/mix';
-import ValidateWordCountMixin from './validatewordcount';
+import ValidateWordCountApiMixin from './validatewordcount';
 import { isElement } from 'lodash-es';
 
 /**

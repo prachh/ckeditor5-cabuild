@@ -31,18 +31,19 @@
 
 
 .ck-rounded-corners .ck.ck-editor__main>.ck-editor__editable, .ck.ck-editor__main>.ck-editor__editable.ck-rounded-corners {
-    border-bottom-left-radius: 0 !important;
-	border-bottom-right-radius: 0 !important;
-	height: 10em;
+   /* border-bottom-left-radius: 0 !important;
+	border-bottom-right-radius: 0 !important;*/
+	min-height: 10em;
+	resize: vertical;
 }
 
 .ck.ck-label.wordCount {
     padding-top: 7px;
-    display: inline-block;
+	display: inline-block;
+	float: right;
 }
 
 .ck.ck-label.wordMinMax {
     padding-top: 7px;
     display: inline-block;
-    float: right;
 }

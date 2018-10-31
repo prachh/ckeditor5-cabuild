@@ -66,10 +66,18 @@ export default class ClassicEditorUIView extends BoxedEditorUIView {
 		 * @readonly
 		 * @member {module:ui/view~View} #_voiceLabelView
 		 */
+
+		this.maxword = editor.config.get( 'maxword' );
+		this.minword = editor.config.get( 'minword' );
+		if(this.minword == "")
+		{
+			this.minword=0;
+		}
+
 		this._voiceLabelViewForWordCount = this._createVoiceLabel( ariaLabelUidForWordCount );
-		this._voiceLabelViewForWordCount.text = 'Words entered: 0';
+		this._voiceLabelViewForWordCount.text = '0/' + this.maxword + " words";
 		this.wordCount = new LabelView( locale );
-		this.wordCount.text =  'Words entered: 0';
+		this.wordCount.text =  '0/' + this.maxword + " words";
 
 		this.wordCount.extendTemplate( {
 			attributes: {
@@ -78,9 +86,7 @@ export default class ClassicEditorUIView extends BoxedEditorUIView {
 			},
 		} );
 
-		this.maxword = editor.config.get( 'maxword' );
-		this.minword = editor.config.get( 'minword' );
-
+	
 		const ariaLabelUidForMaxMin = uid();
 		/**
 		 * Voice label of the UI.
@@ -102,7 +108,7 @@ export default class ClassicEditorUIView extends BoxedEditorUIView {
 			
 		} );
 
-		this.resize=new ResizeView ( locale );
+		//this.resize=new ResizeView ( locale );
 
 		
 
@@ -120,11 +126,11 @@ export default class ClassicEditorUIView extends BoxedEditorUIView {
 
 		this.top.add( this.stickyPanel );
 		this.main.add( this.editable );
-		this.bottom.add( this.resize );
-		this.wordsummary.add( this.wordCount );
-		this.wordsummary.add( this._voiceLabelViewForWordCount );
+		//this.bottom.add( this.resize );
 		this.wordsummary.add( this.wordMinMax );
 		this.wordsummary.add( this._voiceLabelViewForMaxMin );
+		this.wordsummary.add( this.wordCount );
+		this.wordsummary.add( this._voiceLabelViewForWordCount );
 
 	}
 

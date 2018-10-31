@@ -7,9 +7,9 @@ export default class WordCountPlugin extends Plugin {
 	 */
 	afterInit() {
 		const editor = this.editor;
-
+		const maxword = editor.config.get( 'maxword' );
         editor.model.document.on( 'change', () => {
-			editor.ui.view.wordsummary._items[0].text="Words entered: " + this.editor.ui.editor.getwordcount();
+			editor.ui.view.wordsummary._items[2].text= this.editor.ui.editor.getwordcount() + "/" + maxword + " words";
         });
 		
 	}

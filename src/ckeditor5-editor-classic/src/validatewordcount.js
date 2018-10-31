@@ -27,10 +27,9 @@ const ValidateWordCountApiMixin = {
         }
 
         this.wordLen = this.words.length;
-        console.log(this.wordLen);
         return this.wordLen;
 	}
 
 };
 
-export default ValidateWordCountApi;
+export default ValidateWordCountApiMixin;

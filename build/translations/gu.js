@@ -1,1 +1,1 @@
-(function(d){d['gu']=Object.assign(d['gu']||{},{a:"Maximize",b:"Drive",c:"ઘાટુ - બોલ્ડ્",d:"ત્રાંસુ - ઇટલિક્",e:"નીચે લિટી - અન્ડરલાઇન્",f:"Rich Text Editor",g:"Rich Text Editor, %0",h:"Undo",i:"Redo"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));
+(function(d){d['gu']=Object.assign(d['gu']||{},{a:"Drive",b:"Maximize",c:"ઘાટુ - બોલ્ડ્",d:"ત્રાંસુ - ઇટલિક્",e:"નીચે લિટી - અન્ડરલાઇન્",f:"Rich Text Editor, %0",g:"Rich Text Editor",h:"Undo",i:"Redo"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));

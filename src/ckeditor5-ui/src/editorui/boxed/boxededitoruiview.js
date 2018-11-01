@@ -93,7 +93,8 @@ export default class BoxedEditorUIView extends EditorUIView {
 							'ck',
 							'ck-editor__top',
 							'ck-reset_all',
-							'ck-hidden'
+							'ck-hidden',
+							'ck-editor__toplabels'
 						],
 						role: 'presentation'
 					},

@@ -52,3 +52,9 @@
 .ck.ck-toolbar {
     display: flow-root !important;
 }
+
+.ck.ck-editor__toplabels
+{
+	background-color: white !important;
+	padding:1rem !important;
+}

@@ -1,1 +1,1 @@
-(function(d){d['ro']=Object.assign(d['ro']||{},{a:"Drive",b:"Maximize",c:"Îngroșat",d:"Oblic",e:"Subliniat",f:"Editor de text îmbunătățit, %0",g:"Editor de text îmbunătățit",h:"Anulează",i:"Revenire"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));
+(function(d){d['ro']=Object.assign(d['ro']||{},{a:"Maximize",b:"Drive",c:"Continue",d:"Îngroșat",e:"Oblic",f:"Subliniat",g:"Editor de text îmbunătățit, %0",h:"Editor de text îmbunătățit",i:"Anulează",j:"Revenire"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));

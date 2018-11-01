@@ -12,7 +12,7 @@ export default class DriveUI extends Plugin {
 	 */
 	init() {
 
-		console.log( 'DriveUI was initialized' );
+		//console.log( 'DriveUI was initialized' );
 
 		const editor = this.editor;
 		const t = editor.t;

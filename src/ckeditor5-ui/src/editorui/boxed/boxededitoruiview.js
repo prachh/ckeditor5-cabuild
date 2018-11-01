@@ -28,6 +28,9 @@ export default class BoxedEditorUIView extends EditorUIView {
 
 		const ariaLabelUid = uid();
 
+		
+		this.toplabels = this.createCollection();
+
 		/**
 		 * Collection of the child views located in the top (`.ck-editor__top`)
 		 * area of the UI.
@@ -83,6 +86,19 @@ export default class BoxedEditorUIView extends EditorUIView {
 
 			children: [
 				this._voiceLabelView,
+				{
+					tag: 'div',
+					attributes: {
+						class: [
+							'ck',
+							'ck-editor__top',
+							'ck-reset_all',
+							'ck-hidden'
+						],
+						role: 'presentation'
+					},
+					children: this.toplabels
+				},
 				{
 					tag: 'div',
 					attributes: {

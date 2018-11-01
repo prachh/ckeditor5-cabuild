@@ -1,1 +1,1 @@
-(function(d){d['el']=Object.assign(d['el']||{},{a:"Drive",b:"Maximize",c:"Έντονη",d:"Πλάγια",e:"Underline",f:"Επεξεργαστής Πλούσιου Κειμένου, 0%",g:"Επεξεργαστής Πλούσιου Κειμένου",h:"Αναίρεση",i:"Επανάληψη"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));
+(function(d){d['el']=Object.assign(d['el']||{},{a:"Maximize",b:"Drive",c:"Continue",d:"Έντονη",e:"Πλάγια",f:"Underline",g:"Επεξεργαστής Πλούσιου Κειμένου, 0%",h:"Επεξεργαστής Πλούσιου Κειμένου",i:"Αναίρεση",j:"Επανάληψη"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));

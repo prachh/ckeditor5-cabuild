@@ -1,1 +1,1 @@
-(function(d){d['hu']=Object.assign(d['hu']||{},{a:"Drive",b:"Maximize",c:"Félkövér",d:"Dőlt",e:"Aláhúzott",f:"Bővített szövegszerkesztő, %0",g:"Bővített szövegszerkesztő",h:"Visszavonás",i:"Újra"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));
+(function(d){d['hu']=Object.assign(d['hu']||{},{a:"Maximize",b:"Drive",c:"Continue",d:"Félkövér",e:"Dőlt",f:"Aláhúzott",g:"Bővített szövegszerkesztő, %0",h:"Bővített szövegszerkesztő",i:"Visszavonás",j:"Újra"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));

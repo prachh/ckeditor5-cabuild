@@ -111,7 +111,14 @@ export default class ClassicEditorUIView extends BoxedEditorUIView {
 		//this.resize=new ResizeView ( locale );
 
 		
+		this.wordCountTop = new LabelView( locale );
+		this.wordCountTop.text =  '0/' + this.maxword + " words";
 
+		this.wordMinMaxTop = new LabelView( locale );
+		this.wordMinMaxTop.text = `Min: ${ this.minword } / Max: ${ this.maxword }`;
+
+		this.LabelTop = new LabelView( locale );
+		this.LabelTop.text = editor.config.get( 'questionlabel' );
 	}
 
 	/**
@@ -123,6 +130,10 @@ export default class ClassicEditorUIView extends BoxedEditorUIView {
 		// Set toolbar as a child of a stickyPanel and makes toolbar sticky.
 		this.stickyPanel.content.add( this.toolbar );
 
+		this.toplabels.add( this.LabelTop );
+		this.toplabels.add( this.wordMinMaxTop );
+		this.toplabels.add( this.wordCountTop );
+		
 
 		this.top.add( this.stickyPanel );
 		this.main.add( this.editable );

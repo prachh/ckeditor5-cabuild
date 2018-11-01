@@ -10,6 +10,7 @@
 import View from '../view';
 import IconView from '../icon/iconview';
 import TooltipView from '../tooltip/tooltipview';
+import LabelView from '../label/labelview';
 
 import uid from '@ckeditor/ckeditor5-utils/src/uid';
 import { getEnvKeystrokeText } from '@ckeditor/ckeditor5-utils/src/keyboard';
@@ -54,11 +55,13 @@ export default class ButtonView extends View {
 		this.set( 'isVisible', true );
 		this.set( 'keystroke' );
 		this.set( 'label' );
+		this.set( 'buttontext' );
 		this.set( 'tabindex', -1 );
 		this.set( 'tooltip' );
 		this.set( 'tooltipPosition', 's' );
 		this.set( 'type', 'button' );
 		this.set( 'withText', false );
+		this.set( 'withbuttontext', false );
 
 		/**
 		 * Collection of the child views inside of the button {@link #element}.
@@ -99,6 +102,9 @@ export default class ButtonView extends View {
 			}
 		} );
 
+	
+		this.textView = this._createTextView( );
+
 		/**
 		 * Tooltip of the button bound to the template.
 		 *
@@ -126,7 +132,8 @@ export default class ButtonView extends View {
 					bind.if( 'isEnabled', 'ck-disabled', value => !value ),
 					bind.if( 'isVisible', 'ck-hidden', value => !value ),
 					bind.to( 'isOn', value => value ? 'ck-on' : 'ck-off' ),
-					bind.if( 'withText', 'ck-button_with-text' )
+					bind.if( 'withText', 'ck-button_with-text' ),
+					bind.if( 'withbuttontext', 'ck-button__right' )
 				],
 				type: bind.to( 'type', value => value ? value : 'button' ),
 				tabindex: bind.to( 'tabindex' ),
@@ -167,7 +174,7 @@ export default class ButtonView extends View {
 			this.iconView.bind( 'content' ).to( this, 'icon' );
 			this.children.add( this.iconView );
 		}
-
+		this.children.add( this.textView );
 		this.children.add( this.tooltipView );
 		this.children.add( this.labelView );
 	}
@@ -226,6 +233,29 @@ export default class ButtonView extends View {
 		} );
 
 		return labelView;
+	}
+
+	_createTextView( ) {
+		const TextView = new View();
+		const bind = this.bindTemplate;
+
+		TextView.setTemplate( {
+			tag: 'span',
+
+			attributes: {
+				class: [
+					'ck',
+					'ck-button__textview'
+				]
+			},
+			children: [
+				{
+					text: this.bindTemplate.to( 'buttontext' )
+				}
+			]
+		} );
+
+		return TextView;
 	}
 
 	/**

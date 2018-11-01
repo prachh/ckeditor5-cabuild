@@ -15,6 +15,7 @@ import Maximize from './ckeditor5-customtoolbars/src/maximize';
 import Drive from './ckeditor5-customtoolbars/src/drive';
 import ToolbarView from '@ckeditor/ckeditor5-ui/src/toolbar/toolbarview';
 import WordCount from './ckeditor5-customtoolbars/src/wordcount';
+import Continue from './ckeditor5-customtoolbars/src/continue';
 
 
 export default class ClassicEditor extends ClassicEditorBase {}
@@ -30,7 +31,8 @@ ClassicEditor.builtinPlugins = [
 	Maximize,
 	Drive,
 	ToolbarView,
-	WordCount
+	WordCount,
+	Continue
 ];
 
 // Editor configuration.
@@ -42,11 +44,13 @@ defaultConfig = {
 			'italic',
 			'underline',
 			'maximize',
-			'drive'
+			'drive',
+			'Continue'
 		]
 	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
 	language: 'en',
 	maxword: 10,
-	minword: 0
+	minword: 0,
+	questionlabel: 'Please write an essay on the topic selected. You can type directly into the box, or you can paste text from another source.'
 };

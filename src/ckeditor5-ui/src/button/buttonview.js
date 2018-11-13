@@ -62,6 +62,7 @@ export default class ButtonView extends View {
 		this.set( 'type', 'button' );
 		this.set( 'withText', false );
 		this.set( 'withbuttontext', false );
+		this.set( 'closebutton', false );
 
 		/**
 		 * Collection of the child views inside of the button {@link #element}.
@@ -245,7 +246,8 @@ export default class ButtonView extends View {
 			attributes: {
 				class: [
 					'ck',
-					'ck-button__textview'
+					'ck-button__textview',
+					bind.if( 'closebutton', 'ck-button__closeview' )
 				]
 			},
 			children: [
@@ -254,7 +256,6 @@ export default class ButtonView extends View {
 				}
 			]
 		} );
-
 		return TextView;
 	}
 

@@ -23,6 +23,11 @@ export default class ESCCommand extends Command {
                         this.e.ui.view.toplabels._parentElement.classList.add("ck-hidden")
                         this.e.ui.view.wordsummary._parentElement.classList.remove("ck-hidden")
                 }
+
+                if(this.e.ui.view.accessibilitymodel._items[0].element.style.display === "block")
+                {
+                        this.e.ui.view.accessibilitymodel._items[0].element.style.display="none";
+                }
 	}
 			
 }

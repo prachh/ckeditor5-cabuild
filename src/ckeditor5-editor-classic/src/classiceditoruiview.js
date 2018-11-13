@@ -12,6 +12,8 @@ import InlineEditableUIView from './../../ckeditor5-ui/src/editableui/inline/inl
 import StickyPanelView from './../../ckeditor5-ui/src/panel/sticky/stickypanelview';
 import ToolbarView from './../../ckeditor5-ui/src/toolbar/toolbarview';
 import LabelView from './../../ckeditor5-ui/src/label/labelview';
+import AccessDialogView from './../../ckeditor5-ui/src/accessdialog/accessdialogview';
+
 import ResizeView from './../../ckeditor5-ui/src/resize/resizeview';
 
 import uid from '@ckeditor/ckeditor5-utils/src/uid';
@@ -119,6 +121,9 @@ export default class ClassicEditorUIView extends BoxedEditorUIView {
 
 		this.LabelTop = new LabelView( locale );
 		this.LabelTop.text = editor.config.get( 'questionlabel' );
+
+
+		this.accessibility = new AccessDialogView( locale, editor );
 	}
 
 	/**
@@ -142,6 +147,8 @@ export default class ClassicEditorUIView extends BoxedEditorUIView {
 		this.wordsummary.add( this._voiceLabelViewForMaxMin );
 		this.wordsummary.add( this.wordCount );
 		this.wordsummary.add( this._voiceLabelViewForWordCount );
+
+		this.accessibilitymodel.add( this.accessibility);
 
 	}
 

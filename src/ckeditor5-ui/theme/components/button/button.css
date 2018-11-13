@@ -58,3 +58,8 @@ a.ck.ck-button {
 .ck.ck-button__right:hover{
 	background: none !important;
 }
+
+.ck.ck-button__closeview {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}

@@ -59,6 +59,10 @@ export default class BoxedEditorUIView extends EditorUIView {
 		//this.bottom = this.createCollection();
 
 		this.wordsummary = this.createCollection();
+
+
+		this.accessibilitymodel = this.createCollection();
+
 		/**
 		 * Voice label of the UI.
 		 *
@@ -145,6 +149,17 @@ export default class BoxedEditorUIView extends EditorUIView {
 					},
 					children: this.wordsummary
 				},
+				{
+					tag: 'div',
+					attributes: {
+						class: [
+							'ck',
+							'ck-editor__accessibilitymodel'
+						],
+						role: 'presentation'
+					},
+					children: this.accessibilitymodel
+				}
 			]
 		} );
 	}

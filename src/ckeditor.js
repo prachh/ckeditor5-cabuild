@@ -16,6 +16,7 @@ import Drive from './ckeditor5-customtoolbars/src/drive';
 import ToolbarView from '@ckeditor/ckeditor5-ui/src/toolbar/toolbarview';
 import WordCount from './ckeditor5-customtoolbars/src/wordcount';
 import Continue from './ckeditor5-customtoolbars/src/continue';
+import Dialog from './ckeditor5-customtoolbars/src/dialog';
 
 
 export default class ClassicEditor extends ClassicEditorBase {}
@@ -32,7 +33,8 @@ ClassicEditor.builtinPlugins = [
 	Drive,
 	ToolbarView,
 	WordCount,
-	Continue
+	Continue,
+	Dialog
 ];
 
 // Editor configuration.

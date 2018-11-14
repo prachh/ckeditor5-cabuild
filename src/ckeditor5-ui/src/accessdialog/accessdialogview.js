@@ -9,6 +9,7 @@
 
 import View from '../view'; 
 import ButtonView from '../button/buttonview';
+import uid from '@ckeditor/ckeditor5-utils/src/uid';
 
 import '../../theme/components/accessdialog/accessdialog.css'
 
@@ -25,6 +26,7 @@ export default class AccessDialogView extends View {
 		super( locale );
 		const t = editor.t;
 		
+		const buttonUid = `ck-button-${ uid() }`;
 
 		const bind = this.bindTemplate;
 
@@ -43,6 +45,7 @@ export default class AccessDialogView extends View {
 
 			closeview.extendTemplate( {
 				attributes: {
+					id: `${ buttonUid }`,
 					class: 'cke_dialog_close'
 				}
 			} );

@@ -27,6 +27,7 @@ export default class ESCCommand extends Command {
                 if(this.e.ui.view.accessibilitymodel._items[0].element.style.display === "block")
                 {
                         this.e.ui.view.accessibilitymodel._items[0].element.style.display="none";
+                        this.e.ui.view.editable.editableElement.focus();
                 }
 	}
 			

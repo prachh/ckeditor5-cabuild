@@ -1,1 +1,1 @@
-(function(d){d['tt']=Object.assign(d['tt']||{},{a:"Drive",b:"Maximize",c:"Continue",d:"Калын",e:"Underline",f:"Italic",g:"Rich Text Editor",h:"Rich Text Editor, %0",i:"Undo",j:"Кабатла"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));
+(function(d){d['tt']=Object.assign(d['tt']||{},{a:"Maximize",b:"Drive",c:"Continue",d:"Калын",e:"Italic",f:"Underline",g:"Rich Text Editor",h:"Rich Text Editor, Press Alt+0 for help",i:"Undo",j:"Кабатла"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));

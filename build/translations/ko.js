@@ -1,1 +1,1 @@
-(function(d){d['ko']=Object.assign(d['ko']||{},{a:"Drive",b:"Maximize",c:"Continue",d:"기울임꼴",e:"굵게",f:"밑줄",g:"Rich Text Editor",h:"Rich Text Editor, %0",i:"실행 취소",j:"다시 실행"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));
+(function(d){d['ko']=Object.assign(d['ko']||{},{a:"Maximize",b:"Upload from Google Drive",c:"Continue",d:"기울임꼴",e:"밑줄",f:"굵게",g:"Rich Text Editor",h:"Rich Text Editor, Press Alt+0 for help",i:"실행 취소",j:"다시 실행"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));

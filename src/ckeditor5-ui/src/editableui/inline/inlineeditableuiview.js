@@ -38,7 +38,7 @@ export default class InlineEditableUIView extends EditableUIView {
 		this.set( 'name', null );
 
 		const getLabel = value => {
-			return t( 'Rich Text Editor, %0', [ value ] );
+			return t( 'Rich Text Editor, Press Alt+0 for help');
 		};
 
 		this.extendTemplate( {

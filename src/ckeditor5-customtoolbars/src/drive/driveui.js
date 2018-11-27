@@ -59,7 +59,7 @@ export default class DriveUI extends Plugin {
 		const command = editor.commands.get( DRIVE );
             	
             view.set( {
-                label: t( 'Drive' ),
+                label: t( 'Upload from Google Drive' ),
 				icon: driveIcon,
 				keystroke: 'CTRL+D',
 				tooltip: true

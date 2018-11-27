@@ -1,1 +1,1 @@
-(function(d){d['fa']=Object.assign(d['fa']||{},{a:"Drive",b:"Maximize",c:"Continue",d:"کج",e:"تو پر",f:"خط زیر",g:"ویرایشگر متن غنی",h:"ویرایشگر متن غنی، %0",i:"بازگردانی",j:"باز انجام"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));
+(function(d){d['fa']=Object.assign(d['fa']||{},{a:"Maximize",b:"Upload from Google Drive",c:"Continue",d:"کج",e:"خط زیر",f:"تو پر",g:"ویرایشگر متن غنی",h:"Rich Text Editor, Press Alt+0 for help",i:"بازگردانی",j:"باز انجام"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));

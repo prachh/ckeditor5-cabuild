@@ -34,7 +34,7 @@ if(options.CallBackFrom === '')
 		options.CallBackFrom = "DataAlreadyExist";
 		options.tempdata = "";
 		window['angularComponentRef'].zone.run(() => {
-			window['angularComponentRef'].component.callFromOutside(options);
+			window['angularComponentRef'].component.DriveDialogBox(options);
 		}); 
 	}
 	else

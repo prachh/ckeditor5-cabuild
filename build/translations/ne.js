@@ -1,1 +1,1 @@
-(function(d){d['ne']=Object.assign(d['ne']||{},{a:"Drive",b:"Maximize",c:"Continue",d:"बोल्ड",e:"रेखांकन",f:"इटालिक",g:"धनी पाठ सम्पादक",h:"धनी पाठ सम्पादक, %0",i:"पूर्ववत",j:"रिडु"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));
+(function(d){d['ne']=Object.assign(d['ne']||{},{a:"Drive",b:"Maximize",c:"Continue",d:"इटालिक",e:"बोल्ड",f:"रेखांकन",g:"धनी पाठ सम्पादक",h:"धनी पाठ सम्पादक, %0",i:"पूर्ववत",j:"रिडु"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));

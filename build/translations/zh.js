@@ -1,1 +1,1 @@
-(function(d){d['zh']=Object.assign(d['zh']||{},{a:"Drive",b:"Maximize",c:"Continue",d:"粗體",e:"Underline",f:"斜體",g:"豐富文字編輯器",h:"豐富文字編輯器，%0",i:"取消",j:"重做"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));
+(function(d){d['zh']=Object.assign(d['zh']||{},{a:"Drive",b:"Maximize",c:"Continue",d:"斜體",e:"粗體",f:"Underline",g:"豐富文字編輯器",h:"豐富文字編輯器，%0",i:"取消",j:"重做"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));

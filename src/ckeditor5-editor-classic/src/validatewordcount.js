@@ -3,10 +3,16 @@ const ValidateWordCountApiMixin = {
 	getwordcount() {
         
         
-		this.htmlFromEditor = this.data.get();
+        this.htmlFromEditor = this.data.get();
 		this.wordLen = 0;
 
-        this.htmlFromEditor = this.htmlFromEditor.replace(/(\r\n|\n|\r)/gm, " ").replace(/^\s+|\s+$/g, "").replace("&nbsp;", " ");
+
+        this.htmlFromEditor = this.htmlFromEditor.replace(/(\r\n|\n|\r)/gm, " ")
+                                                .replace(/^\s+|\s+$/g, "")
+                                                .replace("&nbsp;", " ")
+                                                .replace(/<p>/g,"")
+                                                .replace(/<\/p>/g," ");
+        //console.log(this.htmlFromEditor);
 
         this.tmp = document.createElement("div");
         this.tmp.innerHTML = this.htmlFromEditor;

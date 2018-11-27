@@ -111,7 +111,7 @@ var contentFilter = function (htmlData) {
 	options.CallBackFrom = "InvalidData";
 	options.tempdata = $data.html();
 	window['angularComponentRef'].zone.run(() => {
-		window['angularComponentRef'].component.callFromOutside(options);
+		window['angularComponentRef'].component.DriveDialogBox(options);
 	}); 
   }
   else

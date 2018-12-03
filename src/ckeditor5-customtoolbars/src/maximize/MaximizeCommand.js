@@ -33,7 +33,7 @@ export default class MaximizeCommand extends Command {
 				this.view.element.classList.add("ck-on");
 				this.e.sourceElement.nextSibling.classList.add("ckeditorfullsize");
 				 var heightvalue = window.innerHeight - this.e.sourceElement.nextSibling.children[1].offsetHeight - 40;
-				 var stylevalue= "height: " + heightvalue + "px !important;";
+				 var stylevalue= "height: " + heightvalue + "px !important; resize:none;";
 				 var fullstyle="display: block; z-index: 999; position: fixed; left: 0px; top: 0px; width: 100%;";
 				 this.e.sourceElement.nextSibling.style=fullstyle;
 				 document.getElementsByTagName('html')[0].style.overflow = 'hidden';

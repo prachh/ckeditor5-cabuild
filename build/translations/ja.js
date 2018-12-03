@@ -1,1 +1,1 @@
-(function(d){d['ja']=Object.assign(d['ja']||{},{a:"Maximize",b:"Upload from Google Drive",c:"Continue",d:"ボールド",e:"イタリック",f:"アンダーライン",g:"リッチテキストエディター",h:"Rich Text Editor, Press Alt+0 for help",i:"元に戻す",j:"やり直し"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));
+(function(d){d['ja']=Object.assign(d['ja']||{},{a:"Upload from Google Drive",b:"Maximize",c:"Continue",d:"ボールド",e:"アンダーライン",f:"イタリック",g:"リッチテキストエディター",h:"Rich Text Editor, Press Alt+0 for help",i:"元に戻す",j:"やり直し"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));

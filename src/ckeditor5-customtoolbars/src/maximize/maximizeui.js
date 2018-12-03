@@ -6,6 +6,7 @@ import ESCCommand from './ESCCommand';
 
 const MAXIMIZE = 'maximize';
 const EscCOMMAND = 'EscCommand'; 
+const CONTINUE = 'continue'; 
 
 
 export default class MaximizeUI extends Plugin {
@@ -26,6 +27,7 @@ export default class MaximizeUI extends Plugin {
 		// Create Maximize command.
 		editor.commands.add( MAXIMIZE, new MaximizeCommand(this.editor,view) );
 		editor.commands.add( EscCOMMAND, new ESCCommand(this.editor, view) );
+		editor.commands.add( CONTINUE, new ESCCommand(this.editor,view) );
 
 		// Set the Ctrl+M keystroke.
 		editor.keystrokes.set( 'CTRL+M', MAXIMIZE );

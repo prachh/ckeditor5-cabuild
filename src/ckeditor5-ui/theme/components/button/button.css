@@ -6,6 +6,29 @@
 @import "../../mixins/_unselectable.css";
 @import "../tooltip/mixins/_tooltip.css";
 
+.ck-button__textview {
+	padding-left: 1.5rem !important;
+	padding-right: 1.5rem !important;
+	background-color: #82162e  !important;
+    border-color: transparent  !important;
+	color: #fff  !important;
+	border-radius: 5px  !important;
+}
+
+.ck-button__right{
+	float: right !important;
+	padding-right: 10px !important;
+}
+
+.ck-button__right:hover{
+	background: none !important;
+}
+
+.ck-button__closeview {
+    padding-top: 5px  !important;
+    padding-bottom: 5px  !important;
+}
+
 .ck.ck-button,
 a.ck.ck-button {
 	@mixin ck-unselectable;
@@ -41,25 +64,3 @@ a.ck.ck-button {
 	}
 }
 
-.ck.ck-button__textview {
-	padding-left: 1.5rem;
-	padding-right: 1.5rem;
-	background-color: #82162e;
-    border-color: transparent;
-	color: #fff;
-	border-radius: 5px;
-}
-
-.ck.ck-button__right{
-	float: right;
-	padding-right: 10px;
-}
-
-.ck.ck-button__right:hover{
-	background: none !important;
-}
-
-.ck.ck-button__closeview {
-    padding-top: 5px;
-    padding-bottom: 5px;
-}

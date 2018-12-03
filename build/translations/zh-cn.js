@@ -1,1 +1,1 @@
-(function(d){d['zh-cn']=Object.assign(d['zh-cn']||{},{a:"Maximize",b:"Upload from Google Drive",c:"Continue",d:"加粗",e:"倾斜",f:"下划线",g:"富文本编辑器",h:"Rich Text Editor, Press Alt+0 for help",i:"撤销",j:"重做"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));
+(function(d){d['zh-cn']=Object.assign(d['zh-cn']||{},{a:"Upload from Google Drive",b:"Maximize",c:"Continue",d:"加粗",e:"下划线",f:"倾斜",g:"富文本编辑器",h:"Rich Text Editor, Press Alt+0 for help",i:"撤销",j:"重做"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));

@@ -1,1 +1,1 @@
-(function(d){d['ar']=Object.assign(d['ar']||{},{a:"Maximize",b:"Upload from Google Drive",c:"Continue",d:"مائل",e:"عريض",f:"تحته خط",g:"معالج نصوص",h:"Rich Text Editor, Press Alt+0 for help",i:"تراجع",j:"إعادة"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));
+(function(d){d['ar']=Object.assign(d['ar']||{},{a:"Maximize",b:"Minimize",c:"Upload from Google Drive",d:"Continue",e:"مائل",f:"عريض",g:"تحته خط",h:"معالج نصوص",i:"Rich Text Editor, Press Alt+0 for help",j:"تراجع",k:"إعادة"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));

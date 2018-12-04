@@ -12,6 +12,7 @@ import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
 import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import Maximize from './ckeditor5-customtoolbars/src/maximize';
+import Minimize from './ckeditor5-customtoolbars/src/minimize'
 import Drive from './ckeditor5-customtoolbars/src/drive';
 import ToolbarView from '@ckeditor/ckeditor5-ui/src/toolbar/toolbarview';
 import WordCount from './ckeditor5-customtoolbars/src/wordcount';
@@ -34,7 +35,8 @@ ClassicEditor.builtinPlugins = [
 	ToolbarView,
 	WordCount,
 	Continue,
-	Dialog
+	Dialog,
+	Minimize
 ];
 
 // Editor configuration.
@@ -46,6 +48,7 @@ defaultConfig = {
 			'italic',
 			'underline',
 			'maximize',
+			'minimize',
 			'drive',
 			'Continue'
 		]

@@ -7,10 +7,11 @@ export default class MaximizeCommand extends Command {
 
 	constructor(editor, view) {
 		super(editor );
-		this.e=editor;		
+		this.e=editor;
 		this.view=view;
 	}
 	execute( options = {} ) {
+
 
 		if(this.e.sourceElement.nextSibling.classList.contains("ckeditorfullsize"))
 			{
@@ -31,7 +32,7 @@ export default class MaximizeCommand extends Command {
 			{
 				this.e.ui.view.toplabels._parentElement.classList.remove("ck-hidden")
 				this.e.ui.view.wordsummary._parentElement.classList.add("ck-hidden")
-				
+
 				this.e.ui.view.toolbar.items._items[6].element.classList.remove("ck-hidden");
 				this.e.ui.view.toolbar.items._items[3].element.classList.add("ck-hidden");
 				this.e.ui.view.toolbar.items._items[4].element.classList.remove("ck-hidden");
@@ -45,7 +46,40 @@ export default class MaximizeCommand extends Command {
 				 document.getElementsByTagName('html')[0].style.overflow = 'hidden';
 				 //document.getElementsByClassName('ck-content')[0].style.height = window.innerHeight;
 				 this.e.sourceElement.nextSibling.children[3].children[0].style=stylevalue;
-			}
+
+				 this.e.ui.view.main._items[0].editableElement.focus();
+
+				 this.e.ui.view.main._items[0].editableElement.onkeydown=function(value){
+					if(value.srcElement.parentNode.parentNode.classList.contains("ckeditorfullsize"))
+					{
+						if(value.keyCode === 9 || value.keyCode === 27 )
+						{
+							value.srcElement.focus();
+							value.preventDefault();
+						}
+					}
+				}
+				var ed = this.e;
+				for (let entry of this.e.ui.view.toolbar.element.getElementsByClassName("ck-button")) {
+						entry.onkeydown=function(value){
+							if(ed.ui.view.element.classList.contains("ckeditorfullsize"))
+							{
+								if(value.keyCode === 37 || value.keyCode === 38 || 
+									value.keyCode === 39 || value.keyCode === 40 || (value.keyCode === 9 && value.shiftKey === false))
+									{	
+										//Do Nothing
+									}
+									else
+									{
+										value.srcElement.focus();
+										value.preventDefault();
+									}
+							}
+						}
+					}
+
+				
+		}
 	}
-			
+
 }

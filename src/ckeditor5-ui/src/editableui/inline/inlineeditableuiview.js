@@ -44,7 +44,7 @@ export default class InlineEditableUIView extends EditableUIView {
 		this.extendTemplate( {
 			attributes: {
 				role: 'textbox',
-				'aria-label': bind.to( 'name', getLabel ),
+				//'aria-label': bind.to( 'name', getLabel ),
 				class: 'ck-editor__editable_inline'
 			}
 		} );

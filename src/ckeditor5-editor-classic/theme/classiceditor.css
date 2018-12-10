@@ -49,6 +49,12 @@
     display: inline-block;
 }
 
+.ck.ck-label.errorword {
+    padding-top: 7px;
+	display: inline-block;
+	color: #e00029;
+}
+
 .ck.ck-toolbar {
     display: flow-root !important;
 }

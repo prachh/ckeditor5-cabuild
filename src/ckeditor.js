@@ -55,11 +55,11 @@ defaultConfig = {
 	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
 	language: 'en',
-	maxword: 10,
-	minword: 0,
+	maxword: 100,
+	minword: 10,
 	gdAllowedHtmlTags: 'div,p,span,i,em,b,strong,u,ul,ol,li',
 	gdAllowedMimeTypes: 'application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.google-apps.document',
 	questionlabel: 'Please write an essay on the topic selected. You can type directly into the box, or you can paste text from another source.',
-	clientId: '606662169925-d1nina39aght307e62ia9jngh7q5kse5.apps.googleusercontent.com'
-	
+	clientId: '606662169925-d1nina39aght307e62ia9jngh7q5kse5.apps.googleusercontent.com',
+	ariadescribedby: 'test'
 };

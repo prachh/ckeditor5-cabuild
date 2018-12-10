@@ -59,6 +59,7 @@ export default class ClassicEditorUIView extends BoxedEditorUIView {
 		 * @member {module:ui/editableui/inline/inlineeditableuiview~InlineEditableUIView}
 		 */
 		this.editable = new InlineEditableUIView( locale );
+		
 
 		const ariaLabelUidForWordCount = uid();
 		/**
@@ -110,6 +111,25 @@ export default class ClassicEditorUIView extends BoxedEditorUIView {
 			
 		} );
 
+
+		const ariaLabelUidForrichtext = uid();
+		this._richtexteditor = this._createVoiceLabel( ariaLabelUidForrichtext );
+		this._richtexteditor.text =  `Rich Text Editor, Press Alt+0 for help`;
+
+		this.editable.extendTemplate( {
+			attributes: {
+				'aria-labelledby': editor.config.get( 'ariadescribedby' ) + " " + `ck-editor__aria-label_${ ariaLabelUidForMaxMin }` + " " + `ck-editor__aria-label_${ ariaLabelUidForrichtext }`
+			},
+		} );
+
+		this.ErrorMsg = new LabelView( locale );
+		this.ErrorMsg.text = ``;
+		this.ErrorMsg.extendTemplate( {
+			attributes: {
+				class: 'errorword'
+			},
+		} );
+
 		//this.resize=new ResizeView ( locale );
 
 		
@@ -138,6 +158,7 @@ export default class ClassicEditorUIView extends BoxedEditorUIView {
 		this.toplabels.add( this.LabelTop );
 		this.toplabels.add( this.wordMinMaxTop );
 		this.toplabels.add( this.wordCountTop );
+		this.toplabels.add( this.ErrorMsg );
 		
 
 		this.top.add( this.stickyPanel );
@@ -147,7 +168,8 @@ export default class ClassicEditorUIView extends BoxedEditorUIView {
 		this.wordsummary.add( this._voiceLabelViewForMaxMin );
 		this.wordsummary.add( this.wordCount );
 		this.wordsummary.add( this._voiceLabelViewForWordCount );
-
+		
+		this.main.add(this._richtexteditor);
 		this.accessibilitymodel.add( this.accessibility);
 
 	}

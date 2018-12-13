@@ -5,9 +5,8 @@ import Options from './options';
 
 export default class DriveCommand extends Command {
 
-
 	constructor(editor, view) {
-		super(editor );
+		super(editor);
 		this.e=editor;		
 		this.view=view;
 		this.tempdata="";
@@ -20,46 +19,40 @@ export default class DriveCommand extends Command {
 		}
 		var auth="";
 		var editor = this.e;
-
-	//console.log("CallBackFrom" + options.CallBackFrom);
-	//console.log("CallBackFrom" + options.Editor);
-
-	
-
-if(options.CallBackFrom === '')
-{
-	//console.log("First Time Clicked");
-	if(options.Editor.ui.editor.getwordcount() > 1)
-	{
-		options.CallBackFrom = "DataAlreadyExist";
-		options.tempdata = "";
-		window['angularComponentRef'].zone.run(() => {
-			window['angularComponentRef'].component.DriveDialogBox(options);
-		}); 
-	}
-	else
-	{
-		options.Editor.setData("<p></p>");
-		LoadClient();
-	}
-}
-else if(options.CallBackFrom ===  "InvalidData")
-{
-	options.CallBackFrom="";
-	//console.log("Call Backfrom InvalidData");
-	if(options.ReturnValue === true)
-	{
-		options.Editor.setData(options.tempdata);
-		options.tempdata="";
-	}
-}
-else if(options.CallBackFrom === "DataAlreadyExist")
-{
-	options.CallBackFrom="";
-	//console.log("Call Backfrom DataAlreadyExist");
-	if(options.ReturnValue === true)
-		LoadClient();
-}
+		if(options.CallBackFrom === '')
+		{
+			//console.log("First Time Clicked");
+			if(options.Editor.ui.editor.getwordcount() > 0)
+			{
+				options.CallBackFrom = "DataAlreadyExist";
+				options.tempdata = "";
+				window['angularComponentRef'].zone.run(() => {
+					window['angularComponentRef'].component.DriveDialogBox(options);
+				}); 
+			}
+			else
+			{
+				//options.Editor.setData("<p></p>");
+				LoadClient();
+			}
+		}
+		else if(options.CallBackFrom ===  "InvalidData")
+		{
+			options.CallBackFrom="";
+			//console.log("Call Backfrom InvalidData");
+			if(options.ReturnValue === true)
+			{
+				options.Editor.setData(options.tempdata);
+				options.tempdata="";
+			}
+		}
+		else if(options.CallBackFrom === "DataAlreadyExist")
+		{
+			options.CallBackFrom="";
+			//console.log("Call Backfrom DataAlreadyExist");
+			if(options.ReturnValue === true)
+				LoadClient();
+		}
 
 
 var gdocDelete = function (fileId) {

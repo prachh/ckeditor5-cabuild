@@ -11,14 +11,13 @@ import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
 import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
 import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
+
 import Maximize from './ckeditor5-customtoolbars/src/maximize';
 import Minimize from './ckeditor5-customtoolbars/src/minimize'
-import Drive from './ckeditor5-customtoolbars/src/drive';
-import ToolbarView from '@ckeditor/ckeditor5-ui/src/toolbar/toolbarview';
-import WordCount from './ckeditor5-customtoolbars/src/wordcount';
-import Continue from './ckeditor5-customtoolbars/src/continue';
 import Dialog from './ckeditor5-customtoolbars/src/dialog';
-
+import WordCount from './ckeditor5-customtoolbars/src/wordcount';
+import Drive from './ckeditor5-customtoolbars/src/drive';
+import Continue from './ckeditor5-customtoolbars/src/continue';
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -31,17 +30,15 @@ ClassicEditor.builtinPlugins = [
 	Underline,
 	Paragraph,
 	Maximize,
-	Drive,
-	ToolbarView,
-	WordCount,
-	Continue,
 	Dialog,
-	Minimize
+	Minimize,
+	WordCount,
+	Drive,
+	Continue
 ];
 
 // Editor configuration.
-ClassicEditor.
-defaultConfig = {
+ClassicEditor.defaultConfig = {
 	toolbar: {
 		items: [
 			'bold',

@@ -64,3 +64,19 @@
 	background-color: white !important;
 	padding:1rem !important;
 }
+
+.ck.ck-editor__editable_inline > p
+{
+	margin: 1em;
+    font-size: 13px;
+    line-height: 1.6;
+    word-wrap: break-word;
+}
+
+.ck.ck-editor__editable_inline p
+{
+	margin: 1em;
+    font-size: 13px;
+    line-height: 1.6;
+    word-wrap: break-word;
+}

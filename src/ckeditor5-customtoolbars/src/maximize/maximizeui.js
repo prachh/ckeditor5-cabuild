@@ -23,33 +23,31 @@ export default class MaximizeUI extends Plugin {
 
 		editor.ui.componentFactory.add( MAXIMIZE, locale => {
 			const view = new ButtonView( locale );
+				// Create Maximize command.
+				editor.commands.add( MAXIMIZE, new MaximizeCommand(this.editor,view) );
+				editor.commands.add( EscCOMMAND, new ESCCommand(this.editor, view) );
+				editor.commands.add( CONTINUE, new ESCCommand(this.editor,view) );
+				editor.commands.add( MINIMZE, new ESCCommand(this.editor,view) );
 
-			
-		// Create Maximize command.
-		editor.commands.add( MAXIMIZE, new MaximizeCommand(this.editor,view) );
-		editor.commands.add( EscCOMMAND, new ESCCommand(this.editor, view) );
-		editor.commands.add( CONTINUE, new ESCCommand(this.editor,view) );
-		editor.commands.add( MINIMZE, new ESCCommand(this.editor,view) );
-
-		// Set the Ctrl+M keystroke.
-		editor.keystrokes.set( 'CTRL+M', MAXIMIZE );
-		editor.keystrokes.set( 'ESC', EscCOMMAND );
+				// Set the Ctrl+M keystroke.
+				editor.keystrokes.set( 'CTRL+M', MAXIMIZE );
+				editor.keystrokes.set( 'ESC', EscCOMMAND );
 
 
-			const command = editor.commands.get( MAXIMIZE );
+				const command = editor.commands.get( MAXIMIZE );
             	
-            view.set( {
-                label: t( 'Maximize' ),
-				icon: maximizeIcon,
-				keystroke: 'CTRL+M',
-				tooltip: true
-			} );
+				view.set( {
+					label: t( 'Maximize' ),
+					icon: maximizeIcon,
+					keystroke: 'CTRL+M',
+					tooltip: true
+				} );
 			
-			view.bind( 'isOn', 'isEnabled' ).to( command, 'value', 'isEnabled' );
-			// Execute command.
-			this.listenTo( view, 'execute', () => editor.execute(MAXIMIZE) );
+				view.bind( 'isOn', 'isEnabled' ).to( command, 'value', 'isEnabled' );
+				// Execute command.
+				this.listenTo( view, 'execute', () => editor.execute(MAXIMIZE) );
 
-			return view;
+				return view;
 		} );
 		
 	}

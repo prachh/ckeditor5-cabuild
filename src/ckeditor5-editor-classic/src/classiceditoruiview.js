@@ -7,14 +7,11 @@
  * @module editor-classic/classiceditoruiview
  */
 
-import BoxedEditorUIView from './../../ckeditor5-ui/src/editorui/boxed/boxededitoruiview';
-import InlineEditableUIView from './../../ckeditor5-ui/src/editableui/inline/inlineeditableuiview';
-import StickyPanelView from './../../ckeditor5-ui/src/panel/sticky/stickypanelview';
-import ToolbarView from './../../ckeditor5-ui/src/toolbar/toolbarview';
-import LabelView from './../../ckeditor5-ui/src/label/labelview';
-import AccessDialogView from './../../ckeditor5-ui/src/accessdialog/accessdialogview';
-
-import ResizeView from './../../ckeditor5-ui/src/resize/resizeview';
+import CustomBoxedEditorUIView from '../../ckeditor5-ui/src/customboxededitoruiview';
+import InlineEditableUIView from '@ckeditor/ckeditor5-ui/src/editableui/inline/inlineeditableuiview';
+import StickyPanelView from '@ckeditor/ckeditor5-ui/src/panel/sticky/stickypanelview';
+import ToolbarView from '@ckeditor/ckeditor5-ui/src/toolbar/toolbarview';
+import LabelView from '@ckeditor/ckeditor5-ui/src/label/labelview';
 
 import uid from '@ckeditor/ckeditor5-utils/src/uid';
 
@@ -26,7 +23,7 @@ import '../theme/classiceditor.css';
  *
  * @extends module:ui/editorui/boxed/boxededitoruiview~BoxedEditorUIView
  */
-export default class ClassicEditorUIView extends BoxedEditorUIView {
+export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 	/**
 	 * Creates an instance of the classic editor UI view.
 	 *
@@ -61,15 +58,9 @@ export default class ClassicEditorUIView extends BoxedEditorUIView {
 		this.editable = new InlineEditableUIView( locale );
 		
 
-		const ariaLabelUidForWordCount = uid();
-		/**
-		 * Voice label of the UI.
-		 *
-		 * @protected
-		 * @readonly
-		 * @member {module:ui/view~View} #_voiceLabelView
-		 */
+		//-----------------------------Start Custom Code Add for CommonApp---------------------------------------
 
+		const ariaLabelUidForWordCount = uid();
 		this.maxword = editor.config.get( 'maxword' );
 		this.minword = editor.config.get( 'minword' );
 		if(this.minword == "")
@@ -91,13 +82,6 @@ export default class ClassicEditorUIView extends BoxedEditorUIView {
 
 	
 		const ariaLabelUidForMaxMin = uid();
-		/**
-		 * Voice label of the UI.
-		 *
-		 * @protected
-		 * @readonly
-		 * @member {module:ui/view~View} #_voiceLabelView
-		 */
 		this._voiceLabelViewForMaxMin = this._createVoiceLabel( ariaLabelUidForMaxMin );
 		this._voiceLabelViewForMaxMin.text =  `Min: ${ this.minword } / Max: ${ this.maxword }`;
 		
@@ -130,8 +114,6 @@ export default class ClassicEditorUIView extends BoxedEditorUIView {
 			},
 		} );
 
-		//this.resize=new ResizeView ( locale );
-
 		
 		this.wordCountTop = new LabelView( locale );
 		this.wordCountTop.text =  '0/' + this.maxword + " words";
@@ -142,8 +124,7 @@ export default class ClassicEditorUIView extends BoxedEditorUIView {
 		this.LabelTop = new LabelView( locale );
 		this.LabelTop.text = editor.config.get( 'questionlabel' );
 
-
-		this.accessibility = new AccessDialogView( locale, editor );
+		//-----------------------------End Custom Code Add for CommonApp---------------------------------------
 	}
 
 	/**
@@ -155,23 +136,22 @@ export default class ClassicEditorUIView extends BoxedEditorUIView {
 		// Set toolbar as a child of a stickyPanel and makes toolbar sticky.
 		this.stickyPanel.content.add( this.toolbar );
 
+		this.top.add( this.stickyPanel );
+		this.main.add( this.editable );
+		
+		
+		//Custom Added for CommonApp
 		this.toplabels.add( this.LabelTop );
 		this.toplabels.add( this.wordMinMaxTop );
 		this.toplabels.add( this.wordCountTop );
 		this.toplabels.add( this.ErrorMsg );
-		
-
-		this.top.add( this.stickyPanel );
-		this.main.add( this.editable );
-		//this.bottom.add( this.resize );
 		this.wordsummary.add( this.wordMinMax );
 		this.wordsummary.add( this._voiceLabelViewForMaxMin );
 		this.wordsummary.add( this.wordCount );
 		this.wordsummary.add( this._voiceLabelViewForWordCount );
-		
 		this.main.add(this._richtexteditor);
-		this.accessibilitymodel.add( this.accessibility);
-
+		//End
+		
 	}
 
 	/**
@@ -182,6 +162,8 @@ export default class ClassicEditorUIView extends BoxedEditorUIView {
 	}
 
 	
+	//Custom Added for CommonApp
+
 	/**
 	 * Creates a voice label view instance.
 	 *

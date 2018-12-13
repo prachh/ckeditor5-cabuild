@@ -64,7 +64,7 @@ export default class MaximizeCommand extends Command {
 						entry.onkeydown=function(value){
 							if(ed.ui.view.element.classList.contains("ckeditorfullsize"))
 							{
-								if(value.keyCode === 37 || value.keyCode === 38 || 
+								if(value.keyCode === 13 || value.keyCode === 37 || value.keyCode === 38 || 
 									value.keyCode === 39 || value.keyCode === 40 || (value.keyCode === 9 && value.shiftKey === false))
 									{	
 										//Do Nothing

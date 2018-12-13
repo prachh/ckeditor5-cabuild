@@ -7,15 +7,15 @@
  * @module ui/button/buttonview
  */
 
-import View from '../view';
-import IconView from '../icon/iconview';
-import TooltipView from '../tooltip/tooltipview';
-import LabelView from '../label/labelview';
+import View from '@ckeditor/ckeditor5-ui/src/view';
+import IconView from '@ckeditor/ckeditor5-ui/src/icon/iconview';
+import TooltipView from '@ckeditor/ckeditor5-ui/src/tooltip/tooltipview';
+import LabelView from '@ckeditor/ckeditor5-ui/src/label/labelview';
 
 import uid from '@ckeditor/ckeditor5-utils/src/uid';
 import { getEnvKeystrokeText } from '@ckeditor/ckeditor5-utils/src/keyboard';
 
-import '../../theme/components/button/button.css';
+import './button.css';
 
 /**
  * The button view class.
@@ -36,7 +36,7 @@ import '../../theme/components/button/button.css';
  * @extends module:ui/view~View
  * @implements module:ui/button/button~Button
  */
-export default class ButtonView extends View {
+export default class CustomButtonView extends View {
 	/**
 	 * @inheritDoc
 	 */

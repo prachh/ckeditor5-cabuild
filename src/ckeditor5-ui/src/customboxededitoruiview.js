@@ -7,8 +7,8 @@
  * @module ui/editorui/boxed/boxededitoruiview
  */
 
-import EditorUIView from '../../editorui/editoruiview';
-import LabelView from '../../label/labelview';
+import EditorUIView from '@ckeditor/ckeditor5-ui/src/editorui/editoruiview';
+import LabelView from '@ckeditor/ckeditor5-ui/src/label/labelview';
 import uid from '@ckeditor/ckeditor5-utils/src/uid';
 
 /**
@@ -28,7 +28,6 @@ export default class BoxedEditorUIView extends EditorUIView {
 
 		const ariaLabelUid = uid();
 
-		
 		this.toplabels = this.createCollection();
 
 		/**
@@ -49,19 +48,7 @@ export default class BoxedEditorUIView extends EditorUIView {
 		 */
 		this.main = this.createCollection();
 
-			/**
-		 * Collection of the child views located in the main (`.ck-editor__bottom`)
-		 * area of the UI.
-		 *
-		 * @readonly
-		 * @member {module:ui/viewcollection~ViewCollection}
-		 */
-		//this.bottom = this.createCollection();
-
 		this.wordsummary = this.createCollection();
-
-
-		this.accessibilitymodel = this.createCollection();
 
 		/**
 		 * Voice label of the UI.
@@ -82,10 +69,10 @@ export default class BoxedEditorUIView extends EditorUIView {
 					'ck-editor',
 					'ck-rounded-corners'
 				],
-				//role: 'application',
+				role: 'application',
 				dir: 'ltr',
 				lang: locale.language,
-				//'aria-labelledby': `ck-editor__aria-label_${ ariaLabelUid }`
+				'aria-labelledby': `ck-editor__aria-label_${ ariaLabelUid }`
 			},
 
 			children: [
@@ -127,17 +114,6 @@ export default class BoxedEditorUIView extends EditorUIView {
 					},
 					children: this.main
 				},
-				/*{
-					tag: 'div',
-					attributes: {
-						class: [
-							'ck',
-							'ck-editor__bottom'
-						],
-						role: 'presentation'
-					},
-					children: this.bottom
-				},*/
 				{
 					tag: 'div',
 					attributes: {
@@ -148,17 +124,6 @@ export default class BoxedEditorUIView extends EditorUIView {
 						role: 'presentation'
 					},
 					children: this.wordsummary
-				},
-				{
-					tag: 'div',
-					attributes: {
-						class: [
-							'ck',
-							'ck-editor__accessibilitymodel'
-						],
-						role: 'presentation'
-					},
-					children: this.accessibilitymodel
 				}
 			]
 		} );

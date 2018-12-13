@@ -13,7 +13,6 @@ export default class DialogUI extends Plugin {
 		//console.log( 'ContinueUI was initialized' );
 
 		const editor = this.editor;
-		const t = editor.t;
 
 		editor.commands.add( DIALOG, new DialogCommand(this.editor) );
 

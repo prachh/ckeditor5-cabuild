@@ -1,4 +1,3 @@
-
 import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
 import DialogUI from './dialog/dialog'
 

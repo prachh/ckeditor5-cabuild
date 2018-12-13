@@ -3,8 +3,8 @@
  * For licensing, see LICENSE.md.
  */
 
-@import "../../mixins/_unselectable.css";
-@import "../tooltip/mixins/_tooltip.css";
+@import "../../../node_modules/@ckeditor/ckeditor5-ui/theme/mixins/_unselectable.css";
+@import "../../../node_modules/@ckeditor/ckeditor5-ui/theme/components/tooltip/mixins/_tooltip.css";
 
 .ck-button__textview {
 	padding-left: 1.5rem !important;

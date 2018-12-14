@@ -123,7 +123,11 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 
 		this.LabelTop = new LabelView( locale );
 		this.LabelTop.text = editor.config.get( 'questionlabel' );
-
+		this.LabelTop.extendTemplate( {
+			attributes: {
+				class: 'questiontext'
+			},
+		} );
 		//-----------------------------End Custom Code Add for CommonApp---------------------------------------
 	}
 

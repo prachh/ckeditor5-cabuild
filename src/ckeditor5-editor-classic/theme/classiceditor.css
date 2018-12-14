@@ -53,6 +53,15 @@
     padding-top: 7px;
 	display: inline-block;
 	color: #e00029;
+	word-break: break-word !important;
+	max-width: 100% !important;
+	white-space: normal !important;
+}
+
+.ck.ck-label.questiontext {
+   word-break: break-word !important;
+   max-width: 100% !important;
+   white-space: normal !important;
 }
 
 .ck.ck-toolbar {
@@ -80,3 +89,4 @@
     line-height: 1.6;
     word-wrap: break-word;
 }
+

@@ -7,12 +7,12 @@ export default class WordCountPlugin extends Plugin {
 	 */
 	afterInit() {
 		const editor = this.editor;
-		const maxword = editor.config.get( 'maxword' );
-		const minword = editor.config.get( 'minword' );
+		const maxword = Number(editor.config.get( 'maxword' ));
+		const minword = Number(editor.config.get( 'minword' ));
         editor.model.document.on( 'change', () => {
 			const response=JSON.parse(this.editor.ui.editor.getwordcount());
-			const totalword = response.NumberOfWord;
-			const totalchar = response.NumberOfChar;
+			const totalword = Number(response.NumberOfWord);
+			const totalchar = Number(response.NumberOfChar);
 
 			editor.ui.view.wordsummary._items[2].text= totalword + "/" + maxword + " words";
 			editor.ui.view.toplabels._items[2].text= totalword + "/" + maxword + " words";

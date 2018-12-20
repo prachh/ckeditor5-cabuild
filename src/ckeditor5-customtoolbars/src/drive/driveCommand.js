@@ -22,7 +22,10 @@ export default class DriveCommand extends Command {
 		if(options.CallBackFrom === '')
 		{
 			//console.log("First Time Clicked");
-			if(options.Editor.ui.editor.getwordcount() > 0)
+			const response=JSON.parse(options.Editor.ui.editor.getwordcount());
+			const totalword = Number(response.NumberOfWord);
+
+			if(totalword > 0)
 			{
 				options.CallBackFrom = "DataAlreadyExist";
 				options.tempdata = "";

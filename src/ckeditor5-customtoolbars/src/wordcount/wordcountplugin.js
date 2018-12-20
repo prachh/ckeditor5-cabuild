@@ -14,6 +14,8 @@ export default class WordCountPlugin extends Plugin {
 			const totalword = Number(response.NumberOfWord);
 			const totalchar = Number(response.NumberOfChar);
 
+			//console.log(response);
+			//console.log(totalchar);
 			editor.ui.view.wordsummary._items[2].text= totalword + "/" + maxword + " words";
 			editor.ui.view.toplabels._items[2].text= totalword + "/" + maxword + " words";
 			editor.ui.view.toplabels._items[3].element.classList.add("ck-hidden");

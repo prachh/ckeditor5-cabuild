@@ -4,14 +4,15 @@ const ValidateWordCountApiMixin = {
         
         
         this.htmlFromEditor = this.data.get();
-		this.wordLen = 0;
+        this.wordLen = 0;
+        this.charLen=0;
 
 
         this.htmlFromEditor = this.htmlFromEditor.replace(/(\r\n|\n|\r)/gm, " ")
                                                 .replace(/^\s+|\s+$/g, "")
                                                 .replace("&nbsp;", " ")
                                                 .replace(/<p>/g,"")
-                                                .replace(/<\/p>/g," ");
+                                                .replace(/<\/p>/g," ").trim();
         //console.log(this.htmlFromEditor);
 
         this.tmp = document.createElement("div");
@@ -33,7 +34,9 @@ const ValidateWordCountApiMixin = {
         }
 
         this.wordLen = this.words.length;
-        return this.wordLen;
+        this.charLen = this.htmlFromEditor.length;
+
+        return '{ "NumberOfWord": "' + this.wordLen + '" , "NumberOfChar": "' + this.charLen + '"}'; 
 	}
 
 };

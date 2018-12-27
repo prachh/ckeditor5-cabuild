@@ -27,7 +27,6 @@
 	--ck-icon-size : 1.5rem !important;
 	--ck-color-text:#434343;
 
-
     --ck-color-button-default-hover-background: #d3d3d3;
     --ck-color-button-default-active-background: #d3d3d3;
     --ck-color-button-default-active-shadow: transparent;
@@ -35,8 +34,32 @@
     --ck-color-button-on-background: #d3d3d3;
     --ck-color-button-on-hover-background: #d3d3d3;
     --ck-color-button-on-active-background: #d3d3d3;
-    --ck-color-button-on-active-shadow: transparent;
+	--ck-color-button-on-active-shadow: transparent;
+	--ck-font-face:"Open Sans", Sans-Serif !important;
+	--ck-font-size-base: 16px !important;
+}
 
+
+.ck.ck-label {
+	font-weight: 400 !important;
+}
+
+
+  /* -- Styles for top labels */
+.ck.ck-editor__top.ck-reset_all.ck-editor__toplabels {
+
+	background-color: white !important;
+    padding: 1.25rem 1.25rem 0.5rem 1.25rem !important;
+}
+
+.ck.ck-editor__top.ck-reset_all.ck-editor__toplabels  label:not(:first) {
+	padding-top:0.5rem !important;
+}
+
+.ck.ck-label.word-count-top, .ck.ck-label.word-min-max-top , .ck.ck-label.wordCount, .ck.ck-label.wordMinMax{
+	color:#757575 !important;
+	line-height:1rem !important;
+	font-size:0.75rem !important;
 }
 
 .ck.ck-button, a.ck.ck-button {
@@ -76,7 +99,7 @@
 .ckeditorfullsize {
     display: flex !important;
     z-index: 999 !important;
-    position: absolute !important;
+    position: fixed !important;
     left: 0 !important;
     top: 0 !important;
     width: 100% !important;
@@ -107,7 +130,7 @@
         border: rgba(67, 67, 67, .4) solid 2.5rem !important;
     }
 	.ck.ck-toolbar__separator {
-		width:0.5rem;
+		width:1.25rem;
 	}
 }
 
@@ -121,6 +144,37 @@
         /* Overrides the spacing standard setting in the theme. */
         --ck-spacing-standard: 0.5rem;
         --ck-spacing-large: 0.25rem;
+	}
+
+	.ck.ck-editor__top.ck-reset_all.ck-editor__toplabels {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		align-items: stretch;
+		align-content: stretch;
+	}
+
+	.ck.ck-label.word-count-top, .ck.ck-label.word-min-max-top{
+		width: 50%;
+	}
+
+	label.ck.ck-label.word-count-top {
+		text-align: right;
+	}
+
+	.ck.ck-label.errorword, .ck.ck-label.questiontext {
+
+		flex-basis: 100%;
+	}
+
+	.ck-rounded-corners .ck.ck-editor__main>.ck-editor__editable,
+    .ck.ck-editor__main>.ck-editor__editable.ck-rounded-corners {
+        min-height: 6.25rem;
+        height: 6.25rem;
+    }
+    .ck.ck-editor__toplabels {
+        padding: 1rem !important;
     }
 }
 
@@ -157,29 +211,22 @@
     box-sizing: border-box;
 }
 
+.ck.ck-label.wordCount, .ck.ck-label.errorword, .ck.ck-label.wordMinMax  {
+	padding-top: 0.25rem;
+	display: inline-block;
+}
+
 .ck.ck-label.wordCount {
-    padding-top: 7px;
-    display: inline-block;
     float: right;
 }
 
-.ck.ck-label.wordMinMax {
-    padding-top: 7px;
-    display: inline-block;
-}
-
 .ck.ck-label.errorword {
-    padding-top: 7px;
-    display: inline-block;
     color: #e00029;
-    word-break: break-word !important;
     max-width: 100% !important;
-    white-space: normal !important;
 }
 
-.ck.ck-label.questiontext {
+.ck.ck-label.errorword, .ck.ck-label.questiontext {
     word-break: break-word !important;
-    max-width: 100% !important;
     white-space: normal !important;
 }
 
@@ -187,10 +234,6 @@
     display: flow-root !important;
 }
 
-.ck.ck-editor__toplabels {
-    background-color: white !important;
-    padding: 1.25rem !important;
-}
 
 .ck.ck-editor__editable_inline p,
 .ck.ck-editor__editable_inline>p {
@@ -200,18 +243,3 @@
     word-wrap: break-word;
 }
 
-/*
-	Mobile Styles start
-	duplication of styles from ca-app
-*/
-
-@media screen and (max-width: 767px) {
-    .ck-rounded-corners .ck.ck-editor__main>.ck-editor__editable,
-    .ck.ck-editor__main>.ck-editor__editable.ck-rounded-corners {
-        min-height: 6.25rem;
-        height: 6.25rem;
-    }
-    .ck.ck-editor__toplabels {
-        padding: 1rem !important;
-    }
-}

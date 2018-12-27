@@ -89,7 +89,7 @@
 
 .ck.ck-tooltip.ck-tooltip_s {
 	bottom:unset !important;
-	top:-64px !important; /* not sure to calc this right */
+	top:-68px !important; /* not sure to calc this right */
 }
 
 .ck.ck-tooltip.ck-tooltip_s .ck-tooltip__text:after {

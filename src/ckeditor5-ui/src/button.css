@@ -7,12 +7,11 @@
 @import "../../../node_modules/@ckeditor/ckeditor5-ui/theme/components/tooltip/mixins/_tooltip.css";
 
 .ck-button__textview {
-	padding-left: 1.5rem !important;
-	padding-right: 1.5rem !important;
+	padding-left: 1rem !important;
+	padding-right: 1rem !important;
 	background-color: #82162e  !important;
     border-color: transparent  !important;
 	color: #fff  !important;
-	border-radius: 5px  !important;
 }
 
 .ck-button__right{
@@ -33,7 +32,6 @@
 a.ck.ck-button {
 	@mixin ck-unselectable;
 	@mixin ck-tooltip_enabled;
-
 	position: relative;
 	display: inline-flex;
 	align-items: center;

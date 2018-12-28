@@ -1,6 +1,7 @@
 
 import Command from '@ckeditor/ckeditor5-core/src/command';
 import global from '@ckeditor/ckeditor5-utils/src/dom/global';
+import $ from 'jquery';
 
 
 export default class MaximizeCommand extends Command {
@@ -15,15 +16,15 @@ export default class MaximizeCommand extends Command {
 
 		if(this.e.sourceElement.nextSibling.classList.contains("ckeditorfullsize"))
 			{
-				this.e.ui.view.toolbar.items._items[6].element.classList.add("ck-hidden");
-				this.e.ui.view.toolbar.items._items[3].element.classList.remove("ck-hidden");
-				this.e.ui.view.toolbar.items._items[4].element.classList.add("ck-hidden");
+				this.e.ui.view.toolbar.items._items[8].element.classList.add("ck-hidden");
+				this.e.ui.view.toolbar.items._items[4].element.classList.remove("ck-hidden");
+				this.e.ui.view.toolbar.items._items[5].element.classList.add("ck-hidden");
 
 				this.view.element.classList.remove("ck-on");
 				this.view.element.classList.add("ck-off");
 				this.e.sourceElement.nextSibling.classList.remove("ckeditorfullsize");
 				this.e.sourceElement.nextSibling.style="";
-				this.e.sourceElement.nextSibling.children[3].children[0].style="";
+				this.e.sourceElement.nextSibling.children[4].children[0].style="";
 				document.getElementsByTagName('html')[0].style.overflow = ''
 				this.e.ui.view.toplabels._parentElement.classList.add("ck-hidden")
 				this.e.ui.view.wordsummary._parentElement.classList.remove("ck-hidden")
@@ -33,19 +34,16 @@ export default class MaximizeCommand extends Command {
 				this.e.ui.view.toplabels._parentElement.classList.remove("ck-hidden")
 				this.e.ui.view.wordsummary._parentElement.classList.add("ck-hidden")
 
-				this.e.ui.view.toolbar.items._items[6].element.classList.remove("ck-hidden");
-				this.e.ui.view.toolbar.items._items[3].element.classList.add("ck-hidden");
-				this.e.ui.view.toolbar.items._items[4].element.classList.remove("ck-hidden");
-				this.e.ui.view.toolbar.items._items[4].element.classList.add("ck-on");
+				this.e.ui.view.toolbar.items._items[8].element.classList.remove("ck-hidden");
+				this.e.ui.view.toolbar.items._items[4].element.classList.add("ck-hidden");
+				this.e.ui.view.toolbar.items._items[5].element.classList.remove("ck-hidden");
+				this.e.ui.view.toolbar.items._items[5].element.classList.add("ck-on");
 
 				this.e.sourceElement.nextSibling.classList.add("ckeditorfullsize");
-				 var heightvalue = window.innerHeight - this.e.sourceElement.nextSibling.children[1].offsetHeight - 40;
-				 var stylevalue= "height: " + heightvalue + "px !important; resize:none;";
-				 var fullstyle="display: block; z-index: 999; position: fixed; left: 0px; top: 0px; width: 100%;";
-				 this.e.sourceElement.nextSibling.style=fullstyle;
+
+				 //var fullstyle="display: block; z-index: 999; position: fixed; left: 0px; top: 0px; width: 100%;";
+				 //this.e.sourceElement.nextSibling.style=fullstyle;
 				 document.getElementsByTagName('html')[0].style.overflow = 'hidden';
-				 //document.getElementsByClassName('ck-content')[0].style.height = window.innerHeight;
-				 this.e.sourceElement.nextSibling.children[3].children[0].style=stylevalue;
 
 				 this.e.ui.view.main._items[0].editableElement.focus();
 
@@ -64,9 +62,9 @@ export default class MaximizeCommand extends Command {
 						entry.onkeydown=function(value){
 							if(ed.ui.view.element.classList.contains("ckeditorfullsize"))
 							{
-								if(value.keyCode === 13 || value.keyCode === 37 || value.keyCode === 38 || 
+								if(value.keyCode === 13 || value.keyCode === 37 || value.keyCode === 38 ||
 									value.keyCode === 39 || value.keyCode === 40 || (value.keyCode === 9 && value.shiftKey === false))
-									{	
+									{
 										//Do Nothing
 									}
 									else
@@ -78,7 +76,19 @@ export default class MaximizeCommand extends Command {
 						}
 					}
 
-				
+				// $( window ).resize(function() {
+				// 	if(ed.ui.view.element.classList.contains("ckeditorfullsize"))
+				// 			{
+				// 				var heightvalue = window.innerHeight - ed.sourceElement.nextSibling.children[1].offsetHeight - 40;
+				// 				var stylevalue= "height: " + heightvalue + "px !important; resize:none;";
+				// 				ed.sourceElement.nextSibling.children[3].children[0].style=stylevalue;
+				// 			}
+				// });
+
+				// var heightvalue = window.innerHeight - this.e.sourceElement.nextSibling.children[1].offsetHeight - 40;
+				//  var stylevalue= "height: " + heightvalue + "px !important; resize:none;";
+				//  this.e.sourceElement.nextSibling.children[3].children[0].style=stylevalue;
+
 		}
 	}
 

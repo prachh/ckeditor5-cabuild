@@ -44,8 +44,10 @@ ClassicEditor.defaultConfig = {
 			'bold',
 			'italic',
 			'underline',
+			'|',
 			'maximize',
 			'minimize',
+			'|',
 			'drive',
 			'Continue'
 		]

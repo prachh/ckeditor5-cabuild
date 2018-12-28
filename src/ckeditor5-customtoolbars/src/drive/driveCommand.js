@@ -22,7 +22,10 @@ export default class DriveCommand extends Command {
 		if(options.CallBackFrom === '')
 		{
 			//console.log("First Time Clicked");
-			if(options.Editor.ui.editor.getwordcount() > 0)
+			const response=JSON.parse(options.Editor.ui.editor.getwordcount());
+			const totalword = Number(response.NumberOfWord);
+
+			if(totalword > 0)
 			{
 				options.CallBackFrom = "DataAlreadyExist";
 				options.tempdata = "";
@@ -42,8 +45,19 @@ export default class DriveCommand extends Command {
 			//console.log("Call Backfrom InvalidData");
 			if(options.ReturnValue === true)
 			{
-				options.Editor.setData(options.tempdata);
-				options.tempdata="";
+				if($(options.tempdata).text() === '')
+				{
+					options.CallBackFrom = "NoTextContent";
+					options.tempdata = "";
+					window['angularComponentRef'].zone.run(() => {
+						window['angularComponentRef'].component.DriveDialogBox(options);
+					}); 
+				}
+				else
+				{
+					options.Editor.setData(options.tempdata);
+					options.tempdata="";
+				}
 			}
 		}
 		else if(options.CallBackFrom === "DataAlreadyExist")
@@ -52,6 +66,11 @@ export default class DriveCommand extends Command {
 			//console.log("Call Backfrom DataAlreadyExist");
 			if(options.ReturnValue === true)
 				LoadClient();
+		}
+		else if(options.CallBackFrom === "NoTextContent" || options.CallBackFrom === 'Error')
+		{
+			options.CallBackFrom="";
+			options.tempdata="";
 		}
 
 
@@ -103,6 +122,14 @@ var contentFilter = function (htmlData) {
   {
 	options.CallBackFrom = "InvalidData";
 	options.tempdata = $data.html();
+	window['angularComponentRef'].zone.run(() => {
+		window['angularComponentRef'].component.DriveDialogBox(options);
+	}); 
+  }
+  else if($data.text() === '')
+  {
+	options.CallBackFrom = "NoTextContent";
+	options.tempdata = "";
 	window['angularComponentRef'].zone.run(() => {
 		window['angularComponentRef'].component.DriveDialogBox(options);
 	}); 
@@ -181,6 +208,15 @@ var pickerCallback = function (callbackObj) {
 		  gdocImport(selectDoc.id, false);
 	  }
   }
+}
+
+var cleanup = function (response) {
+	console.log(response);
+	options.CallBackFrom = "Error";
+	options.tempdata = "";
+	window['angularComponentRef'].zone.run(() => {
+						window['angularComponentRef'].component.DriveDialogBox(options);
+	});
 }
 
 var loadPicker = function () {

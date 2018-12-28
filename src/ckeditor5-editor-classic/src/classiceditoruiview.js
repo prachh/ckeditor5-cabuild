@@ -56,7 +56,7 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 		 * @member {module:ui/editableui/inline/inlineeditableuiview~InlineEditableUIView}
 		 */
 		this.editable = new InlineEditableUIView( locale );
-		
+
 
 		//-----------------------------Start Custom Code Add for CommonApp---------------------------------------
 
@@ -80,11 +80,11 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 			},
 		} );
 
-	
+
 		const ariaLabelUidForMaxMin = uid();
 		this._voiceLabelViewForMaxMin = this._createVoiceLabel( ariaLabelUidForMaxMin );
 		this._voiceLabelViewForMaxMin.text =  `Min: ${ this.minword } / Max: ${ this.maxword }`;
-		
+
 		this.wordMinMax = new LabelView( locale );
 		this.wordMinMax.text = `Min: ${ this.minword } / Max: ${ this.maxword }`;
 		this.wordMinMax.extendTemplate( {
@@ -92,7 +92,7 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 				class: 'wordMinMax',
 				'aria-labelledby': `ck-editor__aria-label_${ ariaLabelUidForMaxMin }`
 			},
-			
+
 		} );
 
 
@@ -114,16 +114,30 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 			},
 		} );
 
-		
+
 		this.wordCountTop = new LabelView( locale );
 		this.wordCountTop.text =  '0/' + this.maxword + " words";
+		this.wordCountTop.extendTemplate( {
+			attributes: {
+				class: 'word-count-top'
+			},
+		} );
 
 		this.wordMinMaxTop = new LabelView( locale );
 		this.wordMinMaxTop.text = `Min: ${ this.minword } / Max: ${ this.maxword }`;
+		this.wordMinMaxTop.extendTemplate( {
+			attributes: {
+				class: 'word-min-max-top'
+			},
+		} );
 
 		this.LabelTop = new LabelView( locale );
 		this.LabelTop.text = editor.config.get( 'questionlabel' );
-
+		this.LabelTop.extendTemplate( {
+			attributes: {
+				class: 'questiontext'
+			},
+		} );
 		//-----------------------------End Custom Code Add for CommonApp---------------------------------------
 	}
 
@@ -138,8 +152,8 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 
 		this.top.add( this.stickyPanel );
 		this.main.add( this.editable );
-		
-		
+
+
 		//Custom Added for CommonApp
 		this.toplabels.add( this.LabelTop );
 		this.toplabels.add( this.wordMinMaxTop );
@@ -151,7 +165,7 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 		this.wordsummary.add( this._voiceLabelViewForWordCount );
 		this.main.add(this._richtexteditor);
 		//End
-		
+
 	}
 
 	/**
@@ -161,7 +175,7 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 		return this.editable.element;
 	}
 
-	
+
 	//Custom Added for CommonApp
 
 	/**

@@ -22,9 +22,13 @@ export default class MaximizeCommand extends Command {
 
 				this.view.element.classList.remove("ck-on");
 				this.view.element.classList.add("ck-off");
-				this.e.sourceElement.nextSibling.classList.remove("ckeditorfullsize");
-				this.e.sourceElement.nextSibling.style="";
-				this.e.sourceElement.nextSibling.children[4].children[0].style="";
+
+				// $(this.e.sourceElement.nextSibling.children[0]).unwrap();
+				$(this.e.sourceElement.nextSibling).first.unwrap();
+				//this.e.sourceElement.nextSibling.classList.remove("ckeditorfullsize");
+				
+				//this.e.sourceElement.nextSibling.style="";
+				//this.e.sourceElement.nextSibling.children[4].children[0].style="";
 				document.getElementsByTagName('html')[0].style.overflow = ''
 				this.e.ui.view.toplabels._parentElement.classList.add("ck-hidden")
 				this.e.ui.view.wordsummary._parentElement.classList.remove("ck-hidden")
@@ -39,7 +43,8 @@ export default class MaximizeCommand extends Command {
 				this.e.ui.view.toolbar.items._items[5].element.classList.remove("ck-hidden");
 				this.e.ui.view.toolbar.items._items[5].element.classList.add("ck-on");
 
-				this.e.sourceElement.nextSibling.classList.add("ckeditorfullsize");
+				$(this.e.sourceElement.nextSibling).wrap("<div class='ckeditorfullsize'></div>");
+				 //this.e.sourceElement.nextSibling.classList.add("ckeditorfullsize");
 
 				 //var fullstyle="display: block; z-index: 999; position: fixed; left: 0px; top: 0px; width: 100%;";
 				 //this.e.sourceElement.nextSibling.style=fullstyle;

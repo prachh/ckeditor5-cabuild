@@ -132,8 +132,34 @@ a.ck.ck-button:focus {
     top: 0 !important;
     width: 100% !important;
     height: 100vh !important;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: stretch;
+
 }
+
+
+.ckeditorfullsize .ck-editor {
+    width: 100%;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    display: flex !important;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    align-content: stretch;
+}
+.ckeditorfullsize .ck-editor div {
+    width: 100%;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+ }
+
+ .ckeditorfullsize .ck-editor div.ck-editor__main {
+    flex-grow: 1;
+ }
 
 .ckeditorfullsize .ck-rounded-corners .ck.ck-editor__main>.ck-editor__editable,
 .ckeditorfullsize .ck.ck-editor__main>.ck-editor__editable.ck-rounded-corners {
@@ -156,8 +182,12 @@ a.ck.ck-button:focus {
 
 @media screen and (min-width: 768px) {
     .ckeditorfullsize {
-        border: rgba(67, 67, 67, .4) solid 2.5rem !important;
+        padding: 2.5rem;
+        background-color: rgba(67, 67, 67, .4);
+        box-sizing: border-box;
     }
+
+
     .ck.ck-toolbar__separator {
         width: 1.25rem;
     }

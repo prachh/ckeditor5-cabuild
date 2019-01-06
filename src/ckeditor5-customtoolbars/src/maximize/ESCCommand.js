@@ -1,7 +1,8 @@
 
 import Command from '@ckeditor/ckeditor5-core/src/command';
+import $ from 'jquery';
 
-
+// TODO: Esc Command is triggered on Minimize button Click , that is the way it is planned
 export default class ESCCommand extends Command {
 
 	constructor(editor, view) {
@@ -20,7 +21,9 @@ export default class ESCCommand extends Command {
                         this.view.element.classList.remove("ck-on");
                         this.view.element.classList.add("ck-off");
 
-                        this.e.sourceElement.nextSibling.classList.remove("ckeditorfullsize");
+						//this.e.sourceElement.nextSibling.classList.remove("ckeditorfullsize");
+						 $(this.e.sourceElement.nextSibling.children[0]).unwrap();
+						//$('.ck-editor').unwrap();
                         this.e.sourceElement.nextSibling.style="";
                         this.e.sourceElement.nextSibling.children[3].children[0].style="";
                         document.getElementsByTagName('html')[0].style.overflow = ''

@@ -15,7 +15,7 @@ export default class ESCCommand extends Command {
 
 			//TODO: remove Duplication of Code
 			//Add Aria role and Label
-			this.e.sourceElement.nextSibling.removeAttribute("role");
+			this.e.sourceElement.nextSibling.setAttribute("role","application");
 			this.e.sourceElement.nextSibling.removeAttribute("aria-modal");
 
 			// Set Title

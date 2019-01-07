@@ -16,7 +16,7 @@ export default class MaximizeCommand extends Command {
 
 		if (this.e.sourceElement.nextSibling.classList.contains("ckeditorfullsize")) {
 			//Add Aria role and Label
-			this.e.sourceElement.nextSibling.removeAttribute("role");
+			this.e.sourceElement.nextSibling.setAttribute("role","application");
 			this.e.sourceElement.nextSibling.removeAttribute("aria-modal");
 
 			// Set Title

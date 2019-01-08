@@ -15,7 +15,8 @@
 }
 
 .ck-button__right{
-	float: right !important;
+	position: absolute !important;
+	right: 0.25rem;
 	padding-right: 10px !important;
 }
 

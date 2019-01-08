@@ -28,16 +28,16 @@ export default class WordCountPlugin extends Plugin {
 			else if(totalword < minword)
 			{
 				editor.ui.view.toplabels._items[3].element.classList.remove("ck-hidden");
-				editor.ui.view.toplabels._items[3].text= "Add "+ (minword - totalword) +  " or more words to meet the " + minword + " word minimum."
+				editor.ui.view.toplabels._items[3].element.innerHTML= "<span aria-hidden='true' class='mat-icon mat-warn material-icons'>cancel</span> Add "+ (minword - totalword) +  " or more words to meet the " + minword + " word minimum."
 			}
 			else if(totalword > maxword)
 			{
 				editor.ui.view.toplabels._items[3].element.classList.remove("ck-hidden");
-				editor.ui.view.toplabels._items[3].text= "Remove "+ (totalword-maxword) +" or more words to meet the " + maxword + " word maximum."
+				editor.ui.view.toplabels._items[3].element.innerHTML= "<span aria-hidden='true' class='mat-icon mat-warn material-icons'>cancel</span> Remove "+ (totalword-maxword) +" or more words to meet the " + maxword + " word maximum."
 			}
-			
+
 
         });
-		
+
 	}
 }

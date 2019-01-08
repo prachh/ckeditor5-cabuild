@@ -124,6 +124,10 @@ a.ck.ck-button:focus {
     display: none;
 }
 
+.ck.ck-toolbar__separator {
+	background: transparent !important;
+}
+
 .ckeditorfullsize {
     display: flex !important;
     z-index: 999 !important;

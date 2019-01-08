@@ -41,13 +41,16 @@ export default class ClassicEditorUI extends EditorUI {
 
 		view.render();
 
+		// TODO : causing issues with mobile view port
+		// Also this feature not asked by product
+		// Needs more work to enable it back
 		// Set–up the sticky panel with toolbar.
-		view.stickyPanel.bind( 'isActive' ).to( this.focusTracker, 'isFocused' );
-		view.stickyPanel.limiterElement = view.element;
+		// view.stickyPanel.bind( 'isActive' ).to( this.focusTracker, 'isFocused' );
+		// view.stickyPanel.limiterElement = view.element;
 
-		if ( this._toolbarConfig.viewportTopOffset ) {
-			view.stickyPanel.viewportTopOffset = this._toolbarConfig.viewportTopOffset;
-		}
+		// if ( this._toolbarConfig.viewportTopOffset ) {
+		// 	view.stickyPanel.viewportTopOffset = this._toolbarConfig.viewportTopOffset;
+		// }
 
 		// Setup the editable.
 		const editingRoot = editor.editing.view.document.getRoot();

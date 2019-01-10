@@ -42,7 +42,8 @@ export default class MaximizeCommand extends Command {
 			this.e.ui.view.toolbar.items._items[8].element.classList.remove("ck-hidden");
 			this.e.ui.view.toolbar.items._items[4].element.classList.add("ck-hidden");
 			this.e.ui.view.toolbar.items._items[5].element.classList.remove("ck-hidden");
-			this.e.ui.view.toolbar.items._items[5].element.classList.add("ck-on");
+			this.e.ui.view.toolbar.items._items[5].element.classList.remove("ck-on"); //fix for PTS-1461
+
 
 			this.e.sourceElement.nextSibling.classList.add("ckeditorfullsize");
 

@@ -60,5 +60,6 @@ ClassicEditor.defaultConfig = {
 	gdAllowedMimeTypes: 'application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.google-apps.document',
 	questionlabel: 'Please write an essay on the topic selected. You can type directly into the box, or you can paste text from another source.',
 	clientId: '606662169925-d1nina39aght307e62ia9jngh7q5kse5.apps.googleusercontent.com',
-	ariadescribedby: 'test'
+	ariadescribedby: 'test',
+	isrequired: false // Default value
 };

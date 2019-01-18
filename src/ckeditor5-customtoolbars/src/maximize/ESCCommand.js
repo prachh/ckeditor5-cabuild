@@ -19,7 +19,7 @@ export default class ESCCommand extends Command {
 			this.e.sourceElement.nextSibling.removeAttribute("aria-modal");
 
 			// Set Title
-			document.getElementById(this.e.sourceElement.nextSibling.getAttribute('aria-labelledby')).innerText = "Text area minmized."; // TODO: temporary, need confirmation from Product
+			document.getElementById(this.e.sourceElement.nextSibling.getAttribute('aria-labelledby')).innerText = "Text area minimized."; // TODO: temporary, need confirmation from Product
 
 			this.e.ui.view.toolbar.items._items[8].element.classList.add("ck-hidden");
 			this.e.ui.view.toolbar.items._items[4].element.classList.remove("ck-hidden");

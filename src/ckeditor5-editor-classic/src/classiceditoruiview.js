@@ -9,6 +9,7 @@
 
 import CustomBoxedEditorUIView from '../../ckeditor5-ui/src/customboxededitoruiview';
 import InlineEditableUIView from '@ckeditor/ckeditor5-ui/src/editableui/inline/inlineeditableuiview';
+import CustomInlineEditableUIView from '../../ckeditor5-ui/src/custominlineeditableuiview';
 import StickyPanelView from '@ckeditor/ckeditor5-ui/src/panel/sticky/stickypanelview';
 import ToolbarView from '@ckeditor/ckeditor5-ui/src/toolbar/toolbarview';
 import LabelView from '@ckeditor/ckeditor5-ui/src/label/labelview';
@@ -55,7 +56,10 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 		 * @readonly
 		 * @member {module:ui/editableui/inline/inlineeditableuiview~InlineEditableUIView}
 		 */
-		this.editable = new InlineEditableUIView( locale );
+		// this.editable = new InlineEditableUIView( locale );
+		
+		// created custom editable ui view to override aria-label from control
+		this.editable = new CustomInlineEditableUIView( locale );
 
 
 		//-----------------------------Start Custom Code Add for CommonApp---------------------------------------

@@ -57,7 +57,7 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 		 * @member {module:ui/editableui/inline/inlineeditableuiview~InlineEditableUIView}
 		 */
 		// this.editable = new InlineEditableUIView( locale );
-		
+
 		// created custom editable ui view to override aria-label from control
 		this.editable = new CustomInlineEditableUIView( locale );
 
@@ -80,7 +80,10 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 		this.wordCount.extendTemplate( {
 			attributes: {
 				class: 'wordCount',
-				'aria-labelledby': `ck-editor__aria-label_${ ariaLabelUidForWordCount }`
+				// 'aria-labelledby': `ck-editor__aria-label_${ ariaLabelUidForWordCount }`,
+				'aria-live': "polite",
+				'atomic': "true",
+				'role': "status"
 			},
 		} );
 
@@ -94,7 +97,8 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 		this.wordMinMax.extendTemplate( {
 			attributes: {
 				class: 'wordMinMax',
-				'aria-labelledby': `ck-editor__aria-label_${ ariaLabelUidForMaxMin }`
+				// 'aria-labelledby': `ck-editor__aria-label_${ ariaLabelUidForMaxMin }`,
+				id: `minmax_${ ariaLabelUidForMaxMin }`
 			},
 
 		} );
@@ -106,9 +110,20 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 
 		this.editable.extendTemplate( {
 			attributes: {
-				'aria-labelledby': editor.config.get( 'ariadescribedby' ) + " " + `ck-editor__aria-label_${ ariaLabelUidForMaxMin }` + " " + `ck-editor__aria-label_${ ariaLabelUidForrichtext }`
+				'aria-labelledby': editor.config.get( 'ariadescribedby' ) + " " + `ck-editor__aria-label_${ ariaLabelUidForrichtext }`,
+				'aria-describedby': editor.config.get( 'ariadescribedbyForErrorGroup' ) + " " + `minmax_${ ariaLabelUidForMaxMin }`
 			},
 		} );
+
+		// Adding conditional aria attributes if question is required
+		const isrequired = editor.config.get('isrequired').toString();
+		if(isrequired && isrequired === 'true'){
+			this.editable.extendTemplate( {
+				attributes: {
+					'aria-required': true
+				},
+			} );
+		}
 
 		this.ErrorMsg = new LabelView( locale );
 		this.ErrorMsg.text = ``;
@@ -142,6 +157,7 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 				class: 'questiontext'
 			},
 		} );
+
 
 		//Set the asterisk if required
 		//TODO: Need to a find a better way to this, with limited knowledge following the documentation @ https://ckeditor.com/docs/ckeditor5/latest/api/module_ui_label_labelview-LabelView.html	

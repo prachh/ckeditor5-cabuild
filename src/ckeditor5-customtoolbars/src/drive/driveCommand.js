@@ -145,6 +145,10 @@ var contentFilter = function (htmlData) {
 
 var gdocImport = function (fileId, deleteAfter) {
 	//console.log("gdocImport");
+	// Calling 'showLoader()' angular method from javascript to show spinner
+	window['angularLoaderComponentRef'].zone.run(() => {
+		window['angularLoaderComponentRef'].component.showLoader(true);
+	});
   gapi.client.drive.files.export(
 			  {
 				  fileId: fileId,
@@ -152,6 +156,10 @@ var gdocImport = function (fileId, deleteAfter) {
 			  }).then(
 			  function (response) {
 				  //success
+				  // Calling 'showLoader()' angular method from javascript to hide spinner
+				  window['angularLoaderComponentRef'].zone.run(() => {
+					window['angularLoaderComponentRef'].component.showLoader(false);
+				  });
 				  if (deleteAfter) {
 					  gdocDelete(fileId);
 				  }
@@ -162,6 +170,10 @@ var gdocImport = function (fileId, deleteAfter) {
 			  },
 			  //Failure to load file
 			  function (response) {
+				  // Calling 'showLoader()' angular method from javascript to hide spinner
+				  window['angularLoaderComponentRef'].zone.run(() => {
+					window['angularLoaderComponentRef'].component.showLoader(false);
+				  });
 				  if (deleteAfter) {
 					  gdocDelete(fileId);
 				  }

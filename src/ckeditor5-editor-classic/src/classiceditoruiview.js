@@ -110,8 +110,8 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 
 		this.editable.extendTemplate( {
 			attributes: {
-				'aria-labelledby': editor.config.get( 'ariadescribedby' ) + " " + `ck-editor__aria-label_${ ariaLabelUidForrichtext }`,
-				'aria-describedby': editor.config.get( 'ariadescribedbyForErrorGroup' ) + " " + `minmax_${ ariaLabelUidForMaxMin }`
+				'aria-labelledby': editor.config.get( 'ariadescribedby' ),
+				'aria-describedby': editor.config.get( 'ariadescribedbyForErrorGroup' ) + " " + `minmax_${ ariaLabelUidForMaxMin }` + " " + `ck-editor__aria-label_${ ariaLabelUidForrichtext }`
 			},
 		} );
 
@@ -160,11 +160,11 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 
 
 		//Set the asterisk if required
-		//TODO: Need to a find a better way to this, with limited knowledge following the documentation @ https://ckeditor.com/docs/ckeditor5/latest/api/module_ui_label_labelview-LabelView.html	
+		//TODO: Need to a find a better way to this, with limited knowledge following the documentation @ https://ckeditor.com/docs/ckeditor5/latest/api/module_ui_label_labelview-LabelView.html
 		if(editor.config.get( 'isrequired' )){
 			this.LabelTop.render();
 			this.LabelTop.element.innerHTML = `${this.LabelTop.text}<span class="has-text-red">*</span>`;
-		}		
+		}
 		//-----------------------------End Custom Code Add for CommonApp---------------------------------------
 	}
 

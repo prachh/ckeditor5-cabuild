@@ -67,6 +67,7 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 		const ariaLabelUidForWordCount = uid();
 		this.maxword = editor.config.get( 'maxword' );
 		this.minword = editor.config.get( 'minword' );
+		this.e = editor;
 		if(this.minword == "")
 		{
 			this.minword=0;
@@ -116,14 +117,45 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 		} );
 
 		// Adding conditional aria attributes if question is required
+		var mutationObserver = new MutationObserver(function(mutations) {
+			mutations.forEach(function(mutation) {
+				if(mutation.attributeName === "ng-reflect-required"){
+					let questionLabelinnerHTML = mutation.target.childNodes[2].childNodes[1].childNodes[0];
+					let isrequiredProperty = mutation.target.attributes['ng-reflect-required']['nodeValue'];
+					let spanRequiredHTML = '<span class="has-text-red">*</span>';
+
+					mutation.target.childNodes[2].childNodes[3].childNodes[0].attributes['aria-required'].nodeValue = isrequiredProperty;
+
+					if(isrequiredProperty && isrequiredProperty == 'true'){
+						questionLabelinnerHTML.innerHTML = questionLabelinnerHTML.innerHTML + spanRequiredHTML;
+					}else{
+						questionLabelinnerHTML.innerHTML = questionLabelinnerHTML.innerHTML.replace(spanRequiredHTML,'');
+					}
+				}
+			});
+		});
+
+		// Watch for changes being made to the DOM tree
+		mutationObserver.observe(this.e.sourceElement.parentElement, {
+			attributes: true,
+			characterData: false,
+			childList: false,
+			subtree: false,
+			attributeOldValue: true,
+			characterDataOldValue: false
+		});
+
 		const isrequired = editor.config.get('isrequired').toString();
+		let requiredvalue='false';
 		if(isrequired && isrequired === 'true'){
-			this.editable.extendTemplate( {
-				attributes: {
-					'aria-required': true
-				},
-			} );
+			requiredvalue='true'
 		}
+
+		this.editable.extendTemplate( {
+			attributes: {
+				'aria-required': requiredvalue
+			}
+		});
 
 		this.ErrorMsg = new LabelView( locale );
 		this.ErrorMsg.text = ``;

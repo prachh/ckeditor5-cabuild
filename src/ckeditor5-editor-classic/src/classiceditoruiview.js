@@ -9,6 +9,7 @@
 
 import CustomBoxedEditorUIView from '../../ckeditor5-ui/src/customboxededitoruiview';
 import InlineEditableUIView from '@ckeditor/ckeditor5-ui/src/editableui/inline/inlineeditableuiview';
+import CustomInlineEditableUIView from '../../ckeditor5-ui/src/custominlineeditableuiview';
 import StickyPanelView from '@ckeditor/ckeditor5-ui/src/panel/sticky/stickypanelview';
 import ToolbarView from '@ckeditor/ckeditor5-ui/src/toolbar/toolbarview';
 import LabelView from '@ckeditor/ckeditor5-ui/src/label/labelview';
@@ -55,7 +56,10 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 		 * @readonly
 		 * @member {module:ui/editableui/inline/inlineeditableuiview~InlineEditableUIView}
 		 */
-		this.editable = new InlineEditableUIView( locale );
+		// this.editable = new InlineEditableUIView( locale );
+
+		// created custom editable ui view to override aria-label from control
+		this.editable = new CustomInlineEditableUIView( locale );
 
 
 		//-----------------------------Start Custom Code Add for CommonApp---------------------------------------
@@ -63,6 +67,7 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 		const ariaLabelUidForWordCount = uid();
 		this.maxword = editor.config.get( 'maxword' );
 		this.minword = editor.config.get( 'minword' );
+		this.e = editor;
 		if(this.minword == "")
 		{
 			this.minword=0;
@@ -76,7 +81,10 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 		this.wordCount.extendTemplate( {
 			attributes: {
 				class: 'wordCount',
-				'aria-labelledby': `ck-editor__aria-label_${ ariaLabelUidForWordCount }`
+				// 'aria-labelledby': `ck-editor__aria-label_${ ariaLabelUidForWordCount }`,
+				'aria-live': "polite",
+				'atomic': "true",
+				'role': "status"
 			},
 		} );
 
@@ -90,7 +98,8 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 		this.wordMinMax.extendTemplate( {
 			attributes: {
 				class: 'wordMinMax',
-				'aria-labelledby': `ck-editor__aria-label_${ ariaLabelUidForMaxMin }`
+				// 'aria-labelledby': `ck-editor__aria-label_${ ariaLabelUidForMaxMin }`,
+				id: `minmax_${ ariaLabelUidForMaxMin }`
 			},
 
 		} );
@@ -102,9 +111,22 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 
 		this.editable.extendTemplate( {
 			attributes: {
-				'aria-labelledby': editor.config.get( 'ariadescribedby' ) + " " + `ck-editor__aria-label_${ ariaLabelUidForMaxMin }` + " " + `ck-editor__aria-label_${ ariaLabelUidForrichtext }`
+				'aria-labelledby': editor.config.get( 'ariadescribedby' ),
+				'aria-describedby': editor.config.get( 'ariadescribedbyForErrorGroup' ) + " " + `minmax_${ ariaLabelUidForMaxMin }` + " " + `ck-editor__aria-label_${ ariaLabelUidForrichtext }`
 			},
 		} );
+
+		const isrequired = editor.config.get('isrequired').toString();
+		let requiredvalue='false';
+		if(isrequired && isrequired === 'true'){
+			requiredvalue='true'
+		}
+
+		this.editable.extendTemplate( {
+			attributes: {
+				'aria-required': requiredvalue
+			}
+		});
 
 		this.ErrorMsg = new LabelView( locale );
 		this.ErrorMsg.text = ``;
@@ -139,12 +161,13 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 			},
 		} );
 
+
 		//Set the asterisk if required
-		//TODO: Need to a find a better way to this, with limited knowledge following the documentation @ https://ckeditor.com/docs/ckeditor5/latest/api/module_ui_label_labelview-LabelView.html	
+		//TODO: Need to a find a better way to this, with limited knowledge following the documentation @ https://ckeditor.com/docs/ckeditor5/latest/api/module_ui_label_labelview-LabelView.html
 		if(editor.config.get( 'isrequired' )){
 			this.LabelTop.render();
 			this.LabelTop.element.innerHTML = `${this.LabelTop.text}<span class="has-text-red">*</span>`;
-		}		
+		}
 		//-----------------------------End Custom Code Add for CommonApp---------------------------------------
 	}
 

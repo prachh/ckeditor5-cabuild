@@ -65,7 +65,7 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 
 		//-----------------------------Start Custom Code Add for CommonApp---------------------------------------
 
-		const ariaLabelUidForWordCount = uid();
+		// const ariaLabelUidForWordCount = uid();
 		this.maxword = editor.config.get( 'maxword' );
 		this.minword = editor.config.get( 'minword' );
 		this.e = editor;
@@ -74,8 +74,8 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 			this.minword=0;
 		}
 
-		this._voiceLabelViewForWordCount = this._createVoiceLabel( ariaLabelUidForWordCount );
-		this._voiceLabelViewForWordCount.text = '0/' + this.maxword + " words";
+		// this._voiceLabelViewForWordCount = this._createVoiceLabel( ariaLabelUidForWordCount );
+		// this._voiceLabelViewForWordCount.text = '0/' + this.maxword + " words";
 		this.wordCount = new CustomSpanView( locale );
 		this.wordCount.text =  '0/' + this.maxword + " words";
 
@@ -91,8 +91,8 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 
 
 		const ariaLabelUidForMaxMin = uid();
-		this._voiceLabelViewForMaxMin = this._createVoiceLabel( ariaLabelUidForMaxMin );
-		this._voiceLabelViewForMaxMin.text =  `Min: ${ this.minword } / Max: ${ this.maxword }`;
+		// this._voiceLabelViewForMaxMin = this._createVoiceLabel( ariaLabelUidForMaxMin );
+		// this._voiceLabelViewForMaxMin.text =  `Min: ${ this.minword } / Max: ${ this.maxword }`;
 
 		this.wordMinMax = new CustomSpanView( locale );
 		this.wordMinMax.text = `Min: ${ this.minword } / Max: ${ this.maxword }`;
@@ -191,9 +191,9 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 		this.toplabels.add( this.wordCountTop );
 		this.toplabels.add( this.ErrorMsg );
 		this.wordsummary.add( this.wordMinMax );
-		this.wordsummary.add( this._voiceLabelViewForMaxMin );
+		// this.wordsummary.add( this._voiceLabelViewForMaxMin );
 		this.wordsummary.add( this.wordCount );
-		this.wordsummary.add( this._voiceLabelViewForWordCount );
+		// this.wordsummary.add( this._voiceLabelViewForWordCount );
 		this.main.add(this._richtexteditor);
 		//End
 

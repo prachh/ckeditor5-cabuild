@@ -13,7 +13,7 @@ import CustomInlineEditableUIView from '../../ckeditor5-ui/src/custominlineedita
 import StickyPanelView from '@ckeditor/ckeditor5-ui/src/panel/sticky/stickypanelview';
 import ToolbarView from '@ckeditor/ckeditor5-ui/src/toolbar/toolbarview';
 // import LabelView from '@ckeditor/ckeditor5-ui/src/label/labelview';
-import CustomSpanView from '../../ckeditor5-ui/src/customspanview';
+import CustomDivView from '../../ckeditor5-ui/src/customdivview';
 
 import uid from '@ckeditor/ckeditor5-utils/src/uid';
 
@@ -76,7 +76,7 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 
 		// this._voiceLabelViewForWordCount = this._createVoiceLabel( ariaLabelUidForWordCount );
 		// this._voiceLabelViewForWordCount.text = '0/' + this.maxword + " words";
-		this.wordCount = new CustomSpanView( locale );
+		this.wordCount = new CustomDivView( locale );
 		this.wordCount.text =  '0/' + this.maxword + " words";
 
 		this.wordCount.extendTemplate( {
@@ -94,7 +94,7 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 		// this._voiceLabelViewForMaxMin = this._createVoiceLabel( ariaLabelUidForMaxMin );
 		// this._voiceLabelViewForMaxMin.text =  `Min: ${ this.minword } / Max: ${ this.maxword }`;
 
-		this.wordMinMax = new CustomSpanView( locale );
+		this.wordMinMax = new CustomDivView( locale );
 		this.wordMinMax.text = `Min: ${ this.minword } / Max: ${ this.maxword }`;
 		this.wordMinMax.extendTemplate( {
 			attributes: {
@@ -129,7 +129,7 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 			}
 		});
 
-		this.ErrorMsg = new CustomSpanView( locale );
+		this.ErrorMsg = new CustomDivView( locale );
 		this.ErrorMsg.text = ``;
 		this.ErrorMsg.extendTemplate( {
 			attributes: {
@@ -138,23 +138,27 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 		} );
 
 
-		this.wordCountTop = new CustomSpanView( locale );
+		this.wordCountTop = new CustomDivView( locale );
 		this.wordCountTop.text =  '0/' + this.maxword + " words";
 		this.wordCountTop.extendTemplate( {
 			attributes: {
-				class: 'word-count-top'
+				class: 'word-count-top',
+				'aria-live': "polite",
+				'atomic': "true",
+				'role': "status"
 			},
 		} );
 
-		this.wordMinMaxTop = new CustomSpanView( locale );
+		this.wordMinMaxTop = new CustomDivView( locale );
 		this.wordMinMaxTop.text = `Min: ${ this.minword } / Max: ${ this.maxword }`;
 		this.wordMinMaxTop.extendTemplate( {
 			attributes: {
-				class: 'word-min-max-top'
+				class: 'word-min-max-top',
+				id: `minmax_${ ariaLabelUidForMaxMin }`
 			},
 		} );
 
-		this.LabelTop = new CustomSpanView( locale );
+		this.LabelTop = new CustomDivView( locale );
 		this.LabelTop.text = editor.config.get( 'questionlabel' );
 		this.LabelTop.extendTemplate( {
 			attributes: {
@@ -217,7 +221,7 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 	 */
 	_createVoiceLabel( ariaLabelUid ) {
 		const t = this.t;
-		const voiceLabel = new CustomSpanView();
+		const voiceLabel = new CustomDivView();
 		voiceLabel.extendTemplate( {
 			attributes: {
 				id: `ck-editor__aria-label_${ ariaLabelUid }`,

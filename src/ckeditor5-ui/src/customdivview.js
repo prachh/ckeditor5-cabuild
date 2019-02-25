@@ -18,7 +18,7 @@ import '@ckeditor/ckeditor5-ui/theme/components/label/label.css';
  *
  * @extends module:ui/view~View
  */
-export default class CustomSpanView extends View {
+export default class CustomDivView extends View {
 	/**
 	 * @inheritDoc
 	 */
@@ -44,7 +44,7 @@ export default class CustomSpanView extends View {
 		const bind = this.bindTemplate;
 
 		this.setTemplate( {
-			tag: 'span',
+			tag: 'div',
 			attributes: {
 				class: [
 					'ck',

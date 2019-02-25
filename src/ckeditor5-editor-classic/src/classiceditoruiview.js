@@ -116,15 +116,49 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 			},
 		} );
 
+		// Adding conditional aria attributes if question is required
+		var mutationObserver = new MutationObserver(function(mutations) {
+			mutations.forEach(function(mutation) {
+				console.log('mutation', mutation);
+				if(mutation.attributeName === "ng-reflect-required" || mutation.attributeName === 'class'){
+					let questionLabelinnerHTML = mutation.target.childNodes[2].childNodes[1].childNodes[0];
+					let isrequiredProperty = mutation.target.attributes['ng-reflect-required']['nodeValue'];
+					let isInvalidProperty = mutation.target.attributes['class']['nodeValue'].includes('ng-invalid');
+					let spanRequiredHTML = '<span class="has-text-red">*</span>';
+					console.log('isInvalidProperty', isInvalidProperty);
+					mutation.target.childNodes[2].childNodes[3].childNodes[0].attributes['aria-required'].nodeValue = isrequiredProperty;
+					mutation.target.childNodes[2].childNodes[3].childNodes[0].attributes['aria-invalid'].nodeValue = isInvalidProperty;
+
+					if(isrequiredProperty && isrequiredProperty == 'true'){
+						questionLabelinnerHTML.innerHTML = questionLabelinnerHTML.innerHTML + spanRequiredHTML;
+					}else{
+						questionLabelinnerHTML.innerHTML = questionLabelinnerHTML.innerHTML.replace(spanRequiredHTML,'');
+					}
+				}
+			});
+		});
+
+		// Watch for changes being made to the DOM tree
+		mutationObserver.observe(this.e.sourceElement.parentElement, {
+			attributes: true,
+			characterData: false,
+			childList: false,
+			subtree: false,
+			attributeOldValue: true,
+			characterDataOldValue: false
+		});
+
 		const isrequired = editor.config.get('isrequired').toString();
 		let requiredvalue='false';
+		let ariaInvalidValue='false';
 		if(isrequired && isrequired === 'true'){
 			requiredvalue='true'
 		}
 
 		this.editable.extendTemplate( {
 			attributes: {
-				'aria-required': requiredvalue
+				'aria-required': requiredvalue,
+				'aria-invalid': ariaInvalidValue
 			}
 		});
 

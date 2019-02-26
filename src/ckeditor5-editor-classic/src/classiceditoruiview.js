@@ -12,7 +12,6 @@ import InlineEditableUIView from '@ckeditor/ckeditor5-ui/src/editableui/inline/i
 import CustomInlineEditableUIView from '../../ckeditor5-ui/src/custominlineeditableuiview';
 import StickyPanelView from '@ckeditor/ckeditor5-ui/src/panel/sticky/stickypanelview';
 import ToolbarView from '@ckeditor/ckeditor5-ui/src/toolbar/toolbarview';
-// import LabelView from '@ckeditor/ckeditor5-ui/src/label/labelview';
 import CustomDivView from '../../ckeditor5-ui/src/customdivview';
 
 import uid from '@ckeditor/ckeditor5-utils/src/uid';
@@ -74,15 +73,12 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 			this.minword=0;
 		}
 
-		// this._voiceLabelViewForWordCount = this._createVoiceLabel( ariaLabelUidForWordCount );
-		// this._voiceLabelViewForWordCount.text = '0/' + this.maxword + " words";
 		this.wordCount = new CustomDivView( locale );
 		this.wordCount.text =  '0/' + this.maxword + " words";
 
 		this.wordCount.extendTemplate( {
 			attributes: {
 				class: 'wordCount',
-				// 'aria-labelledby': `ck-editor__aria-label_${ ariaLabelUidForWordCount }`,
 				'aria-live': "polite",
 				'atomic': "true",
 				'role': "status"
@@ -91,15 +87,11 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 
 
 		const ariaLabelUidForMaxMin = uid();
-		// this._voiceLabelViewForMaxMin = this._createVoiceLabel( ariaLabelUidForMaxMin );
-		// this._voiceLabelViewForMaxMin.text =  `Min: ${ this.minword } / Max: ${ this.maxword }`;
-
 		this.wordMinMax = new CustomDivView( locale );
 		this.wordMinMax.text = `Min: ${ this.minword } / Max: ${ this.maxword }`;
 		this.wordMinMax.extendTemplate( {
 			attributes: {
 				class: 'wordMinMax',
-				// 'aria-labelledby': `ck-editor__aria-label_${ ariaLabelUidForMaxMin }`,
 				id: `minmax_${ ariaLabelUidForMaxMin }`
 			},
 
@@ -195,9 +187,7 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 		this.toplabels.add( this.wordCountTop );
 		this.toplabels.add( this.ErrorMsg );
 		this.wordsummary.add( this.wordMinMax );
-		// this.wordsummary.add( this._voiceLabelViewForMaxMin );
 		this.wordsummary.add( this.wordCount );
-		// this.wordsummary.add( this._voiceLabelViewForWordCount );
 		this.main.add(this._richtexteditor);
 		//End
 

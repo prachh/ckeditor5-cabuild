@@ -12,7 +12,8 @@ import InlineEditableUIView from '@ckeditor/ckeditor5-ui/src/editableui/inline/i
 import CustomInlineEditableUIView from '../../ckeditor5-ui/src/custominlineeditableuiview';
 import StickyPanelView from '@ckeditor/ckeditor5-ui/src/panel/sticky/stickypanelview';
 import ToolbarView from '@ckeditor/ckeditor5-ui/src/toolbar/toolbarview';
-import LabelView from '@ckeditor/ckeditor5-ui/src/label/labelview';
+// import LabelView from '@ckeditor/ckeditor5-ui/src/label/labelview';
+import CustomDivView from '../../ckeditor5-ui/src/customdivview';
 
 import uid from '@ckeditor/ckeditor5-utils/src/uid';
 
@@ -64,7 +65,7 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 
 		//-----------------------------Start Custom Code Add for CommonApp---------------------------------------
 
-		const ariaLabelUidForWordCount = uid();
+		// const ariaLabelUidForWordCount = uid();
 		this.maxword = editor.config.get( 'maxword' );
 		this.minword = editor.config.get( 'minword' );
 		this.e = editor;
@@ -73,9 +74,9 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 			this.minword=0;
 		}
 
-		this._voiceLabelViewForWordCount = this._createVoiceLabel( ariaLabelUidForWordCount );
-		this._voiceLabelViewForWordCount.text = '0/' + this.maxword + " words";
-		this.wordCount = new LabelView( locale );
+		// this._voiceLabelViewForWordCount = this._createVoiceLabel( ariaLabelUidForWordCount );
+		// this._voiceLabelViewForWordCount.text = '0/' + this.maxword + " words";
+		this.wordCount = new CustomDivView( locale );
 		this.wordCount.text =  '0/' + this.maxword + " words";
 
 		this.wordCount.extendTemplate( {
@@ -90,10 +91,10 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 
 
 		const ariaLabelUidForMaxMin = uid();
-		this._voiceLabelViewForMaxMin = this._createVoiceLabel( ariaLabelUidForMaxMin );
-		this._voiceLabelViewForMaxMin.text =  `Min: ${ this.minword } / Max: ${ this.maxword }`;
+		// this._voiceLabelViewForMaxMin = this._createVoiceLabel( ariaLabelUidForMaxMin );
+		// this._voiceLabelViewForMaxMin.text =  `Min: ${ this.minword } / Max: ${ this.maxword }`;
 
-		this.wordMinMax = new LabelView( locale );
+		this.wordMinMax = new CustomDivView( locale );
 		this.wordMinMax.text = `Min: ${ this.minword } / Max: ${ this.maxword }`;
 		this.wordMinMax.extendTemplate( {
 			attributes: {
@@ -161,7 +162,7 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 			}
 		});
 
-		this.ErrorMsg = new LabelView( locale );
+		this.ErrorMsg = new CustomDivView( locale );
 		this.ErrorMsg.text = ``;
 		this.ErrorMsg.extendTemplate( {
 			attributes: {
@@ -170,23 +171,27 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 		} );
 
 
-		this.wordCountTop = new LabelView( locale );
+		this.wordCountTop = new CustomDivView( locale );
 		this.wordCountTop.text =  '0/' + this.maxword + " words";
 		this.wordCountTop.extendTemplate( {
 			attributes: {
-				class: 'word-count-top'
+				class: 'word-count-top',
+				'aria-live': "polite",
+				'atomic': "true",
+				'role': "status"
 			},
 		} );
 
-		this.wordMinMaxTop = new LabelView( locale );
+		this.wordMinMaxTop = new CustomDivView( locale );
 		this.wordMinMaxTop.text = `Min: ${ this.minword } / Max: ${ this.maxword }`;
 		this.wordMinMaxTop.extendTemplate( {
 			attributes: {
-				class: 'word-min-max-top'
+				class: 'word-min-max-top',
+				id: `minmax_${ ariaLabelUidForMaxMin }`
 			},
 		} );
 
-		this.LabelTop = new LabelView( locale );
+		this.LabelTop = new CustomDivView( locale );
 		this.LabelTop.text = editor.config.get( 'questionlabel' );
 		this.LabelTop.extendTemplate( {
 			attributes: {
@@ -223,9 +228,9 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 		this.toplabels.add( this.wordCountTop );
 		this.toplabels.add( this.ErrorMsg );
 		this.wordsummary.add( this.wordMinMax );
-		this.wordsummary.add( this._voiceLabelViewForMaxMin );
+		// this.wordsummary.add( this._voiceLabelViewForMaxMin );
 		this.wordsummary.add( this.wordCount );
-		this.wordsummary.add( this._voiceLabelViewForWordCount );
+		// this.wordsummary.add( this._voiceLabelViewForWordCount );
 		this.main.add(this._richtexteditor);
 		//End
 
@@ -249,7 +254,7 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 	 */
 	_createVoiceLabel( ariaLabelUid ) {
 		const t = this.t;
-		const voiceLabel = new LabelView();
+		const voiceLabel = new CustomDivView();
 		voiceLabel.extendTemplate( {
 			attributes: {
 				id: `ck-editor__aria-label_${ ariaLabelUid }`,

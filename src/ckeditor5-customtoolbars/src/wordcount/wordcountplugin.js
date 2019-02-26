@@ -14,9 +14,8 @@ export default class WordCountPlugin extends Plugin {
 			const totalword = Number(response.NumberOfWord);
 			const totalchar = Number(response.NumberOfChar);
 			const spanError = "<span aria-hidden='true' class='ck-long-error'>cancel</span>";
-			//console.log(response);
-			//console.log(totalchar);
-			editor.ui.view.wordsummary._items[2].text= totalword + "/" + maxword + " words";
+			//changed the DOM node index because we have removed voice label from DOM.
+			editor.ui.view.wordsummary._items[1].text= totalword + "/" + maxword + " words";
 			editor.ui.view.toplabels._items[2].text= totalword + "/" + maxword + " words";
 			editor.ui.view.toplabels._items[3].element.classList.add("ck-hidden");
 

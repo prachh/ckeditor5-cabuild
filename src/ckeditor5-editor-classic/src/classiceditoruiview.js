@@ -119,13 +119,12 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 		// Adding conditional aria attributes if question is required
 		var mutationObserver = new MutationObserver(function(mutations) {
 			mutations.forEach(function(mutation) {
-				console.log('mutation', mutation);
+				// console.log('mutation', mutation);
 				if(mutation.attributeName === "ng-reflect-required" || mutation.attributeName === 'class'){
 					let questionLabelinnerHTML = mutation.target.childNodes[2].childNodes[1].childNodes[0];
 					let isrequiredProperty = mutation.target.attributes['ng-reflect-required']['nodeValue'];
 					let isInvalidProperty = mutation.target.attributes['class']['nodeValue'].includes('ng-invalid');
 					let spanRequiredHTML = '<span class="has-text-red">*</span>';
-					console.log('isInvalidProperty', isInvalidProperty);
 					mutation.target.childNodes[2].childNodes[3].childNodes[0].attributes['aria-required'].nodeValue = isrequiredProperty;
 					mutation.target.childNodes[2].childNodes[3].childNodes[0].attributes['aria-invalid'].nodeValue = isInvalidProperty;
 

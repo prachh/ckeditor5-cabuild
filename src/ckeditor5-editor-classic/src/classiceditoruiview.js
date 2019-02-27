@@ -13,9 +13,7 @@ import CustomInlineEditableUIView from '../../ckeditor5-ui/src/custominlineedita
 import StickyPanelView from '@ckeditor/ckeditor5-ui/src/panel/sticky/stickypanelview';
 import ToolbarView from '@ckeditor/ckeditor5-ui/src/toolbar/toolbarview';
 import CustomDivView from '../../ckeditor5-ui/src/customdivview';
-
 import uid from '@ckeditor/ckeditor5-utils/src/uid';
-
 import '../theme/classiceditor.css';
 
 /**
@@ -56,7 +54,6 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 		 * @readonly
 		 * @member {module:ui/editableui/inline/inlineeditableuiview~InlineEditableUIView}
 		 */
-		// this.editable = new InlineEditableUIView( locale );
 
 		// created custom editable ui view to override aria-label from control
 		this.editable = new CustomInlineEditableUIView( locale );
@@ -64,7 +61,6 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 
 		//-----------------------------Start Custom Code Add for CommonApp---------------------------------------
 
-		// const ariaLabelUidForWordCount = uid();
 		this.maxword = editor.config.get( 'maxword' );
 		this.minword = editor.config.get( 'minword' );
 		this.e = editor;
@@ -109,15 +105,50 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 			},
 		} );
 
+		// Adding conditional aria attributes if question is required
+		var mutationObserver = new MutationObserver(function(mutations) {
+			mutations.forEach(function(mutation) {
+				// console.log('mutation', mutation);
+				if(mutation.attributeName === "ng-reflect-required"){
+					let questionLabelinnerHTML = mutation.target.childNodes[2].childNodes[1].childNodes[0];
+					let isrequiredProperty = mutation.target.attributes['ng-reflect-required']['nodeValue'];
+					let spanRequiredHTML = '<span class="has-text-red">*</span>';
+
+					if(isrequiredProperty){
+						mutation.target.childNodes[2].childNodes[3].childNodes[0].attributes['aria-required'].nodeValue = isrequiredProperty;
+					}
+
+					if(isrequiredProperty && isrequiredProperty === 'true'){
+						questionLabelinnerHTML.innerHTML = questionLabelinnerHTML.innerHTML + spanRequiredHTML;
+					}else{
+						questionLabelinnerHTML.innerHTML = questionLabelinnerHTML.innerHTML.replace(spanRequiredHTML,'');
+					}
+				}
+
+				// Check for aria-invalid
+				if(mutation.attributeName === 'class'){
+					let isInvalidProperty = mutation.target.attributes['class']['nodeValue'].includes('ng-invalid');
+					mutation.target.childNodes[2].childNodes[3].childNodes[0].attributes['aria-invalid'].nodeValue = isInvalidProperty;
+				}
+			});
+		});
+
+		// Watch for changes being made to the DOM tree
+		mutationObserver.observe(this.e.sourceElement.parentElement, {
+			attributes: true
+		});
+
 		const isrequired = editor.config.get('isrequired').toString();
 		let requiredvalue='false';
+		let ariaInvalidValue='false';
 		if(isrequired && isrequired === 'true'){
 			requiredvalue='true'
 		}
 
 		this.editable.extendTemplate( {
 			attributes: {
-				'aria-required': requiredvalue
+				'aria-required': requiredvalue,
+				'aria-invalid': ariaInvalidValue
 			}
 		});
 

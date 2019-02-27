@@ -12,11 +12,8 @@ import InlineEditableUIView from '@ckeditor/ckeditor5-ui/src/editableui/inline/i
 import CustomInlineEditableUIView from '../../ckeditor5-ui/src/custominlineeditableuiview';
 import StickyPanelView from '@ckeditor/ckeditor5-ui/src/panel/sticky/stickypanelview';
 import ToolbarView from '@ckeditor/ckeditor5-ui/src/toolbar/toolbarview';
-// import LabelView from '@ckeditor/ckeditor5-ui/src/label/labelview';
 import CustomDivView from '../../ckeditor5-ui/src/customdivview';
-
 import uid from '@ckeditor/ckeditor5-utils/src/uid';
-
 import '../theme/classiceditor.css';
 
 /**
@@ -57,7 +54,6 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 		 * @readonly
 		 * @member {module:ui/editableui/inline/inlineeditableuiview~InlineEditableUIView}
 		 */
-		// this.editable = new InlineEditableUIView( locale );
 
 		// created custom editable ui view to override aria-label from control
 		this.editable = new CustomInlineEditableUIView( locale );
@@ -65,7 +61,6 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 
 		//-----------------------------Start Custom Code Add for CommonApp---------------------------------------
 
-		// const ariaLabelUidForWordCount = uid();
 		this.maxword = editor.config.get( 'maxword' );
 		this.minword = editor.config.get( 'minword' );
 		this.e = editor;
@@ -74,15 +69,12 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 			this.minword=0;
 		}
 
-		// this._voiceLabelViewForWordCount = this._createVoiceLabel( ariaLabelUidForWordCount );
-		// this._voiceLabelViewForWordCount.text = '0/' + this.maxword + " words";
 		this.wordCount = new CustomDivView( locale );
 		this.wordCount.text =  '0/' + this.maxword + " words";
 
 		this.wordCount.extendTemplate( {
 			attributes: {
 				class: 'wordCount',
-				// 'aria-labelledby': `ck-editor__aria-label_${ ariaLabelUidForWordCount }`,
 				'aria-live': "polite",
 				'atomic': "true",
 				'role': "status"
@@ -91,15 +83,11 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 
 
 		const ariaLabelUidForMaxMin = uid();
-		// this._voiceLabelViewForMaxMin = this._createVoiceLabel( ariaLabelUidForMaxMin );
-		// this._voiceLabelViewForMaxMin.text =  `Min: ${ this.minword } / Max: ${ this.maxword }`;
-
 		this.wordMinMax = new CustomDivView( locale );
 		this.wordMinMax.text = `Min: ${ this.minword } / Max: ${ this.maxword }`;
 		this.wordMinMax.extendTemplate( {
 			attributes: {
 				class: 'wordMinMax',
-				// 'aria-labelledby': `ck-editor__aria-label_${ ariaLabelUidForMaxMin }`,
 				id: `minmax_${ ariaLabelUidForMaxMin }`
 			},
 
@@ -121,31 +109,33 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 		var mutationObserver = new MutationObserver(function(mutations) {
 			mutations.forEach(function(mutation) {
 				// console.log('mutation', mutation);
-				if(mutation.attributeName === "ng-reflect-required" || mutation.attributeName === 'class'){
+				if(mutation.attributeName === "ng-reflect-required"){
 					let questionLabelinnerHTML = mutation.target.childNodes[2].childNodes[1].childNodes[0];
 					let isrequiredProperty = mutation.target.attributes['ng-reflect-required']['nodeValue'];
-					let isInvalidProperty = mutation.target.attributes['class']['nodeValue'].includes('ng-invalid');
 					let spanRequiredHTML = '<span class="has-text-red">*</span>';
-					mutation.target.childNodes[2].childNodes[3].childNodes[0].attributes['aria-required'].nodeValue = isrequiredProperty;
-					mutation.target.childNodes[2].childNodes[3].childNodes[0].attributes['aria-invalid'].nodeValue = isInvalidProperty;
 
-					if(isrequiredProperty && isrequiredProperty == 'true'){
+					if(isrequiredProperty){
+						mutation.target.childNodes[2].childNodes[3].childNodes[0].attributes['aria-required'].nodeValue = isrequiredProperty;
+					}
+
+					if(isrequiredProperty && isrequiredProperty === 'true'){
 						questionLabelinnerHTML.innerHTML = questionLabelinnerHTML.innerHTML + spanRequiredHTML;
 					}else{
 						questionLabelinnerHTML.innerHTML = questionLabelinnerHTML.innerHTML.replace(spanRequiredHTML,'');
 					}
+				}
+
+				// Check for aria-invalid
+				if(mutation.attributeName === 'class'){
+					let isInvalidProperty = mutation.target.attributes['class']['nodeValue'].includes('ng-invalid');
+					mutation.target.childNodes[2].childNodes[3].childNodes[0].attributes['aria-invalid'].nodeValue = isInvalidProperty;
 				}
 			});
 		});
 
 		// Watch for changes being made to the DOM tree
 		mutationObserver.observe(this.e.sourceElement.parentElement, {
-			attributes: true,
-			characterData: false,
-			childList: false,
-			subtree: false,
-			attributeOldValue: true,
-			characterDataOldValue: false
+			attributes: true
 		});
 
 		const isrequired = editor.config.get('isrequired').toString();
@@ -228,9 +218,7 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 		this.toplabels.add( this.wordCountTop );
 		this.toplabels.add( this.ErrorMsg );
 		this.wordsummary.add( this.wordMinMax );
-		// this.wordsummary.add( this._voiceLabelViewForMaxMin );
 		this.wordsummary.add( this.wordCount );
-		// this.wordsummary.add( this._voiceLabelViewForWordCount );
 		this.main.add(this._richtexteditor);
 		//End
 

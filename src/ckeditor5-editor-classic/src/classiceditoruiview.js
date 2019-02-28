@@ -177,7 +177,7 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 		this.wordMinMaxTop.extendTemplate( {
 			attributes: {
 				class: 'word-min-max-top',
-				id: `minmax_${ ariaLabelUidForMaxMin }`
+				id: `minmaxtop_${ ariaLabelUidForMaxMin }`
 			},
 		} );
 

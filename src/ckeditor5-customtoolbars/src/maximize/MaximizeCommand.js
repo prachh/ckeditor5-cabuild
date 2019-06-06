@@ -36,7 +36,6 @@ export default class MaximizeCommand extends Command {
 			this.e.ui.view.wordsummary._parentElement.classList.remove("ck-hidden")
 		}
 		else {
-			this.e.ui.view.toplabels._items[0].element.innerHTML = this.e.ui.view.toplabels._items[0].element.innerText;
 			this.e.ui.view.toplabels._parentElement.classList.remove("ck-hidden")
 			this.e.ui.view.wordsummary._parentElement.classList.add("ck-hidden")
 

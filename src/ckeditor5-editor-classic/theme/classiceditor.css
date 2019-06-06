@@ -246,12 +246,21 @@ a.ck.ck-button:focus {
 
 
 .ck.ck-label.questiontext {
-	font-size:0.875rem !important;
+    font-size:0.875rem !important;
+    font: 400 14px/20px Roboto, "Helvetica Neue", sans-serif !important;
 }
 
 .ck.ck-label.errorword {
 	font-size:0.75rem !important;
 }
+
+.ck.ck-label.questiontext a{
+    color: var(--color-brand--denim) !important;
+    font-size: inherit  !important;
+    text-decoration: underline  !important;
+    cursor: pointer !important;
+}
+
 
 /*
 	Mobile Styles start
@@ -292,4 +301,5 @@ a.ck.ck-button:focus {
     .ck.ck-editor__toplabels {
         padding: 1rem !important;
     }
+
 }

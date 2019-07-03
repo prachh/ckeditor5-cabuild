@@ -12,7 +12,7 @@ export default class DriveUI extends Plugin {
 	 * @inheritDoc
 	 */
 	init() {
-		
+
 	  var pickerApiLoaded = false;
 
 	  function handleClientLoad() {
@@ -24,11 +24,11 @@ export default class DriveUI extends Plugin {
 		  pickerApiLoaded = true;
 	  }
 
-	  
+
 		const script = document.createElement('script');
 		script.src = 'https://apis.google.com/js/api.js';
 		script.id = 'googledrive';
-	
+
 		if(!document.getElementById(script.id))
 		{
 			console.log("Script Added");
@@ -39,7 +39,7 @@ export default class DriveUI extends Plugin {
 			handleClientLoad();
 		};
 
-		
+
 		//console.log( 'DriveUI was initialized' );
 
 		const editor = this.editor;
@@ -48,7 +48,7 @@ export default class DriveUI extends Plugin {
 		editor.ui.componentFactory.add( DRIVE, locale => {
 			const view = new ButtonView( locale );
 
-			
+
 		// Create DRIVE command.
 		editor.commands.add( DRIVE, new DriveCommand(this.editor,view) );
 
@@ -57,23 +57,23 @@ export default class DriveUI extends Plugin {
 
 
 		const command = editor.commands.get( DRIVE );
-            	
+
             view.set( {
                 label: t( 'Upload from Google Drive' ),
 				icon: driveIcon,
 				keystroke: 'CTRL+D',
 				tooltip: true
 			} );
-			
+
 			view.bind( 'isOn', 'isEnabled' ).to( command, 'value', 'isEnabled' );
 			// Execute command.
-		
+
 			this.optionobj = new Options(editor);
 
 			this.listenTo( view, 'execute', () => editor.execute(DRIVE, this.optionobj) );
 
 			return view;
 		} );
-		
+
 	}
 }

@@ -139,7 +139,7 @@ export default class BoxedEditorUIView extends EditorUIView {
 		const t = this.t;
 		const voiceLabel = new LabelView();
 
-		voiceLabel.text = t( 'Rich Text Editor' );
+		voiceLabel.text = 'Rich Text Editor';
 
 		voiceLabel.extendTemplate( {
 			attributes: {

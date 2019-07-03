@@ -1,0 +1,1 @@
+(function(d){d['id']=Object.assign(d['id']||{},{a:"Maximize",b:"Continue",c:"Upload from Google Drive",d:"Minimize",e:"Miring",f:"Tebal",g:"Garis bawah",h:"Editor Teks Kaya, %0",i:"Batal",j:"Lakukan lagi"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));

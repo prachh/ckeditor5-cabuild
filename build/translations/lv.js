@@ -1,0 +1,1 @@
+(function(d){d['lv']=Object.assign(d['lv']||{},{a:"Maximize",b:"Continue",c:"Upload from Google Drive",d:"Minimize",e:"Kursīvs",f:"Trekns",g:"Pasvītrots",h:"Rich Text Editor, %0",i:"Undo",j:"Redo"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));

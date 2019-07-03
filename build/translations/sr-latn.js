@@ -1,0 +1,1 @@
+(function(d){d['sr-latn']=Object.assign(d['sr-latn']||{},{a:"Maximize",b:"Continue",c:"Upload from Google Drive",d:"Minimize",e:"Kurziv",f:"Podebljano",g:"Podvučen",h:"Prošireni uređivač teksta, %0",i:"Povlačenje",j:"Ponovo"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));

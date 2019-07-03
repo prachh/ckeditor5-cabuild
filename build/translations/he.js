@@ -1,1 +1,1 @@
-(function(d){d['he']=Object.assign(d['he']||{},{a:"Maximize",b:"Upload from Google Drive",c:"Continue",d:"Minimize",e:"Italic",f:"Bold",g:"Underline",h:"Rich Text Editor",i:"עורך טקסט עשיר",j:"Undo",k:"Redo"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));
+(function(d){d['he']=Object.assign(d['he']||{},{a:"Maximize",b:"Continue",c:"Upload from Google Drive",d:"Minimize",e:"נטוי",f:"מודגש",g:"קו תחתון",h:"עורך טקסט עשיר, %0",i:"ביטול",j:"ביצוע מחדש"})})(window.CKEDITOR_TRANSLATIONS||(window.CKEDITOR_TRANSLATIONS={}));

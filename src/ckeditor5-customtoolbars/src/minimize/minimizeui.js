@@ -25,13 +25,13 @@ export default class MinimizeUI extends Plugin {
 				tooltip: true,
 				isVisible: false
 			} );
-			
-		
+
+
 			// Execute command.
 			this.listenTo( view, 'execute', () => editor.execute(MINIMZE) );
 
 			return view;
 		} );
-		
+
 	}
 }

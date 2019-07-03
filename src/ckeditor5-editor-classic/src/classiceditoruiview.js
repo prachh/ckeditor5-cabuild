@@ -1,17 +1,17 @@
 /**
- * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
- * For licensing, see LICENSE.md.
+ * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
+ * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
 /**
  * @module editor-classic/classiceditoruiview
  */
 
-import CustomBoxedEditorUIView from '../../ckeditor5-ui/src/customboxededitoruiview';
+import BoxedEditorUIView from '../../ckeditor5-ui/src/customboxededitoruiview';
 import InlineEditableUIView from '@ckeditor/ckeditor5-ui/src/editableui/inline/inlineeditableuiview';
-import CustomInlineEditableUIView from '../../ckeditor5-ui/src/custominlineeditableuiview';
 import StickyPanelView from '@ckeditor/ckeditor5-ui/src/panel/sticky/stickypanelview';
 import ToolbarView from '@ckeditor/ckeditor5-ui/src/toolbar/toolbarview';
+import CustomInlineEditableUIView from '../../ckeditor5-ui/src/custominlineeditableuiview';
 import CustomDivView from '../../ckeditor5-ui/src/customdivview';
 import uid from '@ckeditor/ckeditor5-utils/src/uid';
 import '../theme/classiceditor.css';
@@ -22,13 +22,14 @@ import '../theme/classiceditor.css';
  *
  * @extends module:ui/editorui/boxed/boxededitoruiview~BoxedEditorUIView
  */
-export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
+export default class ClassicEditorUIView extends BoxedEditorUIView {
 	/**
 	 * Creates an instance of the classic editor UI view.
 	 *
 	 * @param {module:utils/locale~Locale} locale The {@link module:core/editor/editor~Editor#locale} instance.
+	 * @param {module:engine/view/view~View} editingView The editing view instance this view is related to.
 	 */
-	constructor(editor, locale ) {
+	constructor( editor, locale, editingView ) {
 		super( locale );
 
 		/**
@@ -54,13 +55,10 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 		 * @readonly
 		 * @member {module:ui/editableui/inline/inlineeditableuiview~InlineEditableUIView}
 		 */
-
-		// created custom editable ui view to override aria-label from control
-		this.editable = new CustomInlineEditableUIView( locale );
-
+		this.editable = new CustomInlineEditableUIView( locale, editingView );
 
 		//-----------------------------Start Custom Code Add for CommonApp---------------------------------------
-
+		console.log(editor.config.get( 'maxword' ));
 		this.maxword = editor.config.get( 'maxword' );
 		this.minword = editor.config.get( 'minword' );
 		this.e = editor;
@@ -211,7 +209,6 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 		this.top.add( this.stickyPanel );
 		this.main.add( this.editable );
 
-
 		//Custom Added for CommonApp
 		this.toplabels.add( this.LabelTop );
 		this.toplabels.add( this.wordMinMaxTop );
@@ -221,35 +218,5 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 		this.wordsummary.add( this.wordCount );
 		this.main.add(this._richtexteditor);
 		//End
-
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	get editableElement() {
-		return this.editable.element;
-	}
-
-
-	//Custom Added for CommonApp
-
-	/**
-	 * Creates a voice label view instance.
-	 *
-	 * @private
-	 * @returns {module:ui/label/labelview~LabelView}
-	 */
-	_createVoiceLabel( ariaLabelUid ) {
-		const t = this.t;
-		const voiceLabel = new CustomDivView();
-		voiceLabel.extendTemplate( {
-			attributes: {
-				id: `ck-editor__aria-label_${ ariaLabelUid }`,
-				class: 'ck-voice-label'
-			}
-		} );
-
-		return voiceLabel;
 	}
 }

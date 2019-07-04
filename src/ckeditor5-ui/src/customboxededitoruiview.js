@@ -17,7 +17,7 @@ import uid from '@ckeditor/ckeditor5-utils/src/uid';
  *
  * @extends module:ui/editorui/editoruiview~EditorUIView
  */
-export default class BoxedEditorUIView extends EditorUIView {
+export default class CustomBoxedEditorUIView extends EditorUIView {
 	/**
 	 * Creates an instance of the boxed editor UI view class.
 	 *

@@ -28,7 +28,7 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 	 *
 	 * @param {module:utils/locale~Locale} locale The {@link module:core/editor/editor~Editor#locale} instance.
 	 */
-	constructor(editor, locale ) {
+	constructor(editor, locale, editingView ) {
 		super( locale );
 
 		/**
@@ -56,7 +56,7 @@ export default class ClassicEditorUIView extends CustomBoxedEditorUIView {
 		 */
 
 		// created custom editable ui view to override aria-label from control
-		this.editable = new CustomInlineEditableUIView( locale );
+		this.editable = new CustomInlineEditableUIView( locale, editingView );
 
 
 		//-----------------------------Start Custom Code Add for CommonApp---------------------------------------

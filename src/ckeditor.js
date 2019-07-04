@@ -32,9 +32,9 @@ ClassicEditor.builtinPlugins = [
 	Maximize,
 	Dialog,
 	Minimize,
-	WordCount,
 	Drive,
-	Continue
+	Continue,
+	WordCount
 ];
 
 // Editor configuration.

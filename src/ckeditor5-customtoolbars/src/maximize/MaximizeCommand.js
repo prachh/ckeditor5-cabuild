@@ -59,10 +59,9 @@ export default class MaximizeCommand extends Command {
 			//var fullstyle="display: block; z-index: 999; position: fixed; left: 0px; top: 0px; width: 100%;";
 			//this.e.sourceElement.nextSibling.style=fullstyle;
 			document.getElementsByTagName('html')[0].style.overflow = 'hidden';
+			this.e.ui.view.main._items[0]._editableElement.focus();
 
-			this.e.ui.view.main._items[0].editableElement.focus();
-
-			this.e.ui.view.main._items[0].editableElement.onkeydown = function (value) {
+			this.e.ui.view.main._items[0]._editableElement.onkeydown = function (value) {
 				if (value.srcElement.parentNode.parentNode.classList.contains("ckeditorfullsize")) {
 					if (value.keyCode === 9 || value.keyCode === 27) {
 						value.srcElement.focus();
